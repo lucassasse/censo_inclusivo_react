@@ -47,7 +47,7 @@ O projeto está sendo desenvolvido utilizando as seguintes tecnologias:
 
 - Alex Francis Bannach.
 - Eduardo Koch.
-- Leando Kulmann.
+- Leando Kuhlmann.
 - Lucas Eduardo Sasse.
 - Rafael Cristiano Conti.
 
