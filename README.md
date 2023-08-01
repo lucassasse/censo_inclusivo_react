@@ -36,9 +36,9 @@ A aplicação possui/possuirá as seguintes telas e funcionalidades:
 
 O projeto está sendo desenvolvido utilizando as seguintes tecnologias:
 
-- Linguagem de programação WEB: A DEFINIR
-- Framework web: A DEFINIR
-- Linguagem de programação Mobile: A DEFINIR
+- Linguagem de programação WEB: JavaScript + NodeJS
+- Framework web: React
+- Linguagem de programação Mobile: Java
 - Framework Mobile: A DEFINIR
 - Banco de dados: PostgreSQL
 - Bibliotecas adicionais: A DEFINIR
