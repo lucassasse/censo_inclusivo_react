@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const StyledButton = styled.button`
-	background-color: #4169E1;
+	background-color: #203054;
 	border: 3px solid white;
 	color: white;
 	padding: 15px 32px;
@@ -10,12 +10,13 @@ const StyledButton = styled.button`
 	display: inline-block;
 	font-size: 16px;
 	border-radius: 10px;
+	cursor: pointer;
 `;
 
 function BtnComBorda(props){
     return(
         <>
-            <StyledButton>{props.text}</StyledButton>
+            <StyledButton onClick={props.event}>{props.text}</StyledButton>
         </>
     );
 }
