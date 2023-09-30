@@ -1,150 +1,75 @@
+--MySQL
 
-BEGIN;
+CREATE TABLE IF NOT EXISTS bairros (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(255) COLLATE utf8mb4_general_ci,
+    cidade_id INT,
+    FOREIGN KEY (cidade_id) REFERENCES cidades(id)
+) ENGINE=InnoDB;
 
+CREATE TABLE IF NOT EXISTS cidades (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(255) COLLATE utf8mb4_general_ci,
+    estados_id INT,
+    FOREIGN KEY (estados_id) REFERENCES estados(id)
+) ENGINE=InnoDB;
 
-CREATE TABLE IF NOT EXISTS public.bairros
-(
-    id SERIAL NOT NULL,
-    nome character varying(255) COLLATE pg_catalog."default",
-    cidade_id integer,
-    CONSTRAINT bairros_pkey PRIMARY KEY (id)
-);
+CREATE TABLE IF NOT EXISTS contatos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    usuarios_id INT,
+    telefone VARCHAR(20) COLLATE utf8mb4_general_ci,
+    email VARCHAR(100) COLLATE utf8mb4_general_ci,
+    FOREIGN KEY (usuarios_id) REFERENCES usuarios(id)
+) ENGINE=InnoDB;
 
-CREATE TABLE IF NOT EXISTS public.cidades
-(
-    id SERIAL NOT NULL,
-    nome character varying(255) COLLATE pg_catalog."default",
-    estados_id integer,
-    CONSTRAINT cidade_pkey PRIMARY KEY (id)
-);
+CREATE TABLE IF NOT EXISTS estados (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(60) COLLATE utf8mb4_general_ci,
+    uf VARCHAR(2) COLLATE utf8mb4_general_ci,
+    ddd INT,
+    pais_id INT NOT NULL,
+    FOREIGN KEY (pais_id) REFERENCES pais(id)
+) ENGINE=InnoDB;
 
-CREATE TABLE IF NOT EXISTS public.contatos
-(
-    id SERIAL NOT NULL,
-    usuarios_id integer,
-    telefone character varying(20) COLLATE pg_catalog."default",
-    email character varying(100) COLLATE pg_catalog."default",
-    CONSTRAINT contatos_pkey PRIMARY KEY (id)
-);
+CREATE TABLE IF NOT EXISTS pais (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(60) COLLATE utf8mb4_general_ci,
+    sigla VARCHAR(2) COLLATE utf8mb4_general_ci
+) ENGINE=InnoDB;
 
-CREATE TABLE IF NOT EXISTS public.estados
-(
-    id SERIAL NOT NULL,
-    nome character varying(60) COLLATE pg_catalog."default",
-    uf character varying(2) COLLATE pg_catalog."default",
-    ddd integer,
-    pais_id integer NOT NULL,
-    CONSTRAINT estado_pkey PRIMARY KEY (id)
-);
+CREATE TABLE IF NOT EXISTS responsavel (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(200) COLLATE utf8mb4_general_ci
+) ENGINE=InnoDB;
 
-CREATE TABLE IF NOT EXISTS public.pais
-(
-    id SERIAL NOT NULL,
-    nome character varying(60) COLLATE pg_catalog."default",
-    sigla character varying(2) COLLATE pg_catalog."default",
-    CONSTRAINT pais_pkey PRIMARY KEY (id)
-);
+CREATE TABLE IF NOT EXISTS ruas (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(255) COLLATE utf8mb4_general_ci,
+    cep VARCHAR(8) COLLATE utf8mb4_general_ci,
+    bairro_id INT,
+    FOREIGN KEY (bairro_id) REFERENCES bairros(id)
+) ENGINE=InnoDB;
 
-CREATE TABLE IF NOT EXISTS public.responsavel
-(
-    id SERIAL NOT NULL,
-    nome character varying(200) COLLATE pg_catalog."default",
-    CONSTRAINT responsavel_pkey PRIMARY KEY (id)
-);
+CREATE TABLE IF NOT EXISTS tipo_contato (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(50) COLLATE utf8mb4_general_ci,
+    contatos_id INT,
+    FOREIGN KEY (contatos_id) REFERENCES contatos(id)
+) ENGINE=InnoDB;
 
-CREATE TABLE IF NOT EXISTS public.ruas
-(
-    id SERIAL NOT NULL,
-    nome character varying(255) COLLATE pg_catalog."default",
-    cep character varying(8) COLLATE pg_catalog."default",
-    bairro_id integer,
-    CONSTRAINT rua_pkey PRIMARY KEY (id)
-);
-
-CREATE TABLE IF NOT EXISTS public.tipo_contato
-(
-    id SERIAL NOT NULL,
-    nome character varying(50) COLLATE pg_catalog."default",
-    contatos_id integer,
-    CONSTRAINT tipo_contato_pkey PRIMARY KEY (id)
-);
-
-CREATE TABLE IF NOT EXISTS public.usuarios
-(
-    id SERIAL NOT NULL,
-    nome character varying(200) COLLATE pg_catalog."default",
-    cpf character varying(11) COLLATE pg_catalog."default" NOT NULL,
-    data_nascimento date,
-    sexo character(1) COLLATE pg_catalog."default",
-    numero_casa character varying(11) COLLATE pg_catalog."default",
-    nivel_acesso integer NOT NULL,
-    status bit(1) NOT NULL,
-    senha character varying COLLATE pg_catalog."default",
-    data_cadastro date NOT NULL,
-    responsavel_id integer,
-    ruas_id integer,
-    CONSTRAINT usuarios_pkey PRIMARY KEY (id)
-);
-
-ALTER TABLE IF EXISTS public.bairros
-    ADD CONSTRAINT cidade_id_fkey FOREIGN KEY (cidade_id)
-    REFERENCES public.cidades (id) MATCH SIMPLE
-    ON UPDATE NO ACTION
-    ON DELETE NO ACTION
-    NOT VALID;
-
-
-ALTER TABLE IF EXISTS public.cidades
-    ADD CONSTRAINT cidade_id_fkey FOREIGN KEY (estados_id)
-    REFERENCES public.estados (id) MATCH SIMPLE
-    ON UPDATE NO ACTION
-    ON DELETE NO ACTION;
-
-
-ALTER TABLE IF EXISTS public.contatos
-    ADD CONSTRAINT contatos_usuarios_id_fkey FOREIGN KEY (usuarios_id)
-    REFERENCES public.usuarios (id) MATCH SIMPLE
-    ON UPDATE NO ACTION
-    ON DELETE NO ACTION
-    NOT VALID;
-
-
-ALTER TABLE IF EXISTS public.estados
-    ADD CONSTRAINT estado_id_fkey FOREIGN KEY (pais_id)
-    REFERENCES public.pais (id) MATCH SIMPLE
-    ON UPDATE NO ACTION
-    ON DELETE NO ACTION;
-
-
-ALTER TABLE IF EXISTS public.ruas
-    ADD CONSTRAINT ruas_bairro_id_fkey FOREIGN KEY (bairro_id)
-    REFERENCES public.bairros (id) MATCH SIMPLE
-    ON UPDATE NO ACTION
-    ON DELETE NO ACTION
-    NOT VALID;
-
-
-ALTER TABLE IF EXISTS public.tipo_contato
-    ADD CONSTRAINT tipo_contato_contatos_id_fkey FOREIGN KEY (contatos_id)
-    REFERENCES public.contatos (id) MATCH SIMPLE
-    ON UPDATE NO ACTION
-    ON DELETE NO ACTION
-    NOT VALID;
-
-
-ALTER TABLE IF EXISTS public.usuarios
-    ADD CONSTRAINT usuarios_idresponsavel_fkey FOREIGN KEY (responsavel_id)
-    REFERENCES public.responsavel (id) MATCH SIMPLE
-    ON UPDATE NO ACTION
-    ON DELETE NO ACTION
-    NOT VALID;
-
-
-ALTER TABLE IF EXISTS public.usuarios
-    ADD CONSTRAINT usuarios_ruas_id_fkey FOREIGN KEY (ruas_id)
-    REFERENCES public.ruas (id) MATCH SIMPLE
-    ON UPDATE NO ACTION
-    ON DELETE NO ACTION
-    NOT VALID;
-
-END;
+CREATE TABLE IF NOT EXISTS usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(200) COLLATE utf8mb4_general_ci,
+    cpf CHAR(11) COLLATE utf8mb4_general_ci NOT NULL,
+    data_nascimento DATE,
+    sexo CHAR(1) COLLATE utf8mb4_general_ci,
+    numero_casa VARCHAR(11) COLLATE utf8mb4_general_ci,
+    nivel_acesso INT NOT NULL,
+    status BOOLEAN NOT NULL,
+    senha VARCHAR(255) COLLATE utf8mb4_general_ci,
+    data_cadastro DATE NOT NULL,
+    responsavel_id INT,
+    ruas_id INT,
+    FOREIGN KEY (responsavel_id) REFERENCES responsavel(id),
+    FOREIGN KEY (ruas_id) REFERENCES ruas(id)
+) ENGINE=InnoDB;
