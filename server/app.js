@@ -5,8 +5,6 @@ const app = express();
 const morgan = require('morgan');
 const bodyParser = require('body-parser');
 
-const productRoutes = require('./routes/products');
-const orderRoutes = require('./routes/orders');
 const userRoutes = require('./routes/users');
 
 app.use(morgan('dev'));
@@ -26,8 +24,6 @@ app.use((req, res, next) => {
 	next();
 });
 
-app.use('/products', productRoutes);
-app.use('/orders', orderRoutes);
 app.use('/users', userRoutes);
 
 app.use((req, res, next) => {

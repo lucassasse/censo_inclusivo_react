@@ -5,14 +5,14 @@ CREATE TABLE IF NOT EXISTS bairros (
     nome VARCHAR(255) COLLATE utf8mb4_general_ci,
     cidade_id INT,
     FOREIGN KEY (cidade_id) REFERENCES cidades(id)
-) ENGINE=InnoDB;
+);
 
 CREATE TABLE IF NOT EXISTS cidades (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(255) COLLATE utf8mb4_general_ci,
     estados_id INT,
     FOREIGN KEY (estados_id) REFERENCES estados(id)
-) ENGINE=InnoDB;
+);
 
 CREATE TABLE IF NOT EXISTS contatos (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS contatos (
     telefone VARCHAR(20) COLLATE utf8mb4_general_ci,
     email VARCHAR(100) COLLATE utf8mb4_general_ci,
     FOREIGN KEY (usuarios_id) REFERENCES usuarios(id)
-) ENGINE=InnoDB;
+);
 
 CREATE TABLE IF NOT EXISTS estados (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -29,18 +29,18 @@ CREATE TABLE IF NOT EXISTS estados (
     ddd INT,
     pais_id INT NOT NULL,
     FOREIGN KEY (pais_id) REFERENCES pais(id)
-) ENGINE=InnoDB;
+);
 
 CREATE TABLE IF NOT EXISTS pais (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(60) COLLATE utf8mb4_general_ci,
     sigla VARCHAR(2) COLLATE utf8mb4_general_ci
-) ENGINE=InnoDB;
+);
 
 CREATE TABLE IF NOT EXISTS responsavel (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(200) COLLATE utf8mb4_general_ci
-) ENGINE=InnoDB;
+);
 
 CREATE TABLE IF NOT EXISTS ruas (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -48,14 +48,14 @@ CREATE TABLE IF NOT EXISTS ruas (
     cep VARCHAR(8) COLLATE utf8mb4_general_ci,
     bairro_id INT,
     FOREIGN KEY (bairro_id) REFERENCES bairros(id)
-) ENGINE=InnoDB;
+);
 
 CREATE TABLE IF NOT EXISTS tipo_contato (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(50) COLLATE utf8mb4_general_ci,
     contatos_id INT,
     FOREIGN KEY (contatos_id) REFERENCES contatos(id)
-) ENGINE=InnoDB;
+);
 
 CREATE TABLE IF NOT EXISTS usuarios (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -72,4 +72,4 @@ CREATE TABLE IF NOT EXISTS usuarios (
     ruas_id INT,
     FOREIGN KEY (responsavel_id) REFERENCES responsavel(id),
     FOREIGN KEY (ruas_id) REFERENCES ruas(id)
-) ENGINE=InnoDB;
+);
