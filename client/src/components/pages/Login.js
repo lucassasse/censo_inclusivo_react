@@ -1,4 +1,5 @@
 import React from 'react';
+import { Outlet, Link } from "react-router-dom";
 import logo from '../assets/img/logo_cei.png';
 
 import BtnComBorda from '../assets/buttons/BtnComBorda';
@@ -7,7 +8,7 @@ import InpComum from '../assets/inputs/InpComum';
 
 import '../styles/Login.css';
 
-function Login(){
+export default function Login(){
 	function irParaTelaCadastro(){
 		alert('Cadastrar');
 	}
@@ -24,6 +25,7 @@ function Login(){
 				<h2 style={{color:'white'}}>Seja bem vindo!</h2>
 				<h3 style={{color:'white'}}>Ajude a construir benefícios para você e sua cidade!</h3>
 				<BtnComBorda event={irParaTelaCadastro} text="Cadastrar" />
+				<Link to="/register" style={{color:'white'}}>Cadastrar</Link>
 				<a className='link' href='/#'>Esqueci minha senha</a>
 			</div>
 
@@ -31,10 +33,9 @@ function Login(){
 				<h1 className='titulo'>ACESSE SUA CONTA</h1>
 				<InpComum text="Digite seu CPF..."/>
 				<InpComum text="Digite sua Senha..."/>
-				<BtnSemBorda event={logar} text="Entrar"/>
+				<BtnSemBorda event={logar} text="Entrar" />
 			</div>
+			<Outlet />
 		</div>
 	);
 }
-
-export default Login;
