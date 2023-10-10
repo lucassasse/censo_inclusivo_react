@@ -54,3 +54,8 @@ O projeto está sendo desenvolvido utilizando as seguintes tecnologias:
 ## Licença
 
 A DEFINIR
+
+## Start
+
+Server: npm run dev
+Client: npm start
