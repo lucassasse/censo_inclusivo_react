@@ -1,56 +1,68 @@
-# Censo Inclusivo - Contando todos
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Repositório exclusivo para desenvolvimento do projeto Censo Inclusivo, desenvolvido em equipe, pela UniSENAI em conjunto com a Prefeitura Municipal de Jaraguá do Sul.
+## Available Scripts
 
-Este é um projeto de aplicação web e mobile, desenvolvido para realizar um censo da cidade de Jaraguá do Sul, com o objetivo de apurar o número de pessoas com deficiência em cada bairro. A aplicação permite que qualquer pessoa se cadastre e registre sua(s) deficiência(s), fornecendo dados valiosos para a criação de estatísticas para o planejamento de políticas públicas inclusivas dentro do município.
+In the project directory, you can run:
 
-## Funcionalidades
+### `npm start`
 
-A aplicação possui/possuirá as seguintes telas e funcionalidades:
+Runs the app in the development mode.<br />
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-1. **Login**: Permite que os usuários acessem a aplicação utilizando suas credenciais.
+The page will reload if you make edits.<br />
+You will also see any lint errors in the console.
 
-2. **Cadastro**: Permite que os usuários se cadastrem na aplicação, fornecendo informações pessoais e detalhes sobre sua(s) deficiência(s).
+### `npm test`
 
-3. **Painel do Usuário**: Após o login, os usuários têm acesso a um painel personalizado onde podem visualizar e editar suas informações de cadastro.
+Launches the test runner in the interactive watch mode.<br />
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-4. **Estatísticas**: Permite a geração de gráficos e a extração de relatórios com base nos dados coletados no censo. Os usuários podem aplicar filtros para obter informações específicas sobre a quantidade de pessoas com deficiência em determinados bairros, de forma simples ou com detalhas avançados e específicos.
+### `npm run build`
 
-5. **Vagas de Empregos**: Apresenta uma lista de vagas de emprego dentro do município, voltadas para pessoas com deficiência, criando uma ponte entre as empresas e as pessoas com deficiência, facilitando a inclusão no mercado de trabalho.
+Builds the app for production to the `build` folder.<br />
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-6. **Eventos**: Informa sobre eventos relacionados a questões de inclusão e acessibilidade, como palestras, workshops e feiras.
+The build is minified and the filenames include the hashes.<br />
+Your app is ready to be deployed!
 
-7. **Leis e Notícias**: Disponibiliza informações atualizadas sobre legislação e notícias relevantes para a comunidade de pessoas com deficiência, principalmente dentro do município.
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-8. **FAQ e Contato**: Página de perguntas frequentes, onde os usuários podem encontrar respostas para dúvidas comuns sobre o censo e a aplicação, assim como entrar em contato com os administradores da aplicação.
+### `npm run eject`
 
-## Personas
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-1. **Administrador**: É responsável por gerenciar a aplicação, monitorar o censo, realizar o cadastro de instituições municipais e garantir a integridade dos dados coletados. O administrador tem acesso a funcionalidades adicionais, como a visualização completa dos dados cadastrados e a possibilidade de exportar relatórios abrangentes.
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-2. **Entidades Municipais**: Representantes de entidades municipais têm acesso restrito à aplicação e utilizam as informações do censo para o planejamento e implementação de políticas públicas voltadas à inclusão das pessoas com deficiência no município. Podem estes, vizualizar ados e extrair relatórios avançados.
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-3. **População em Geral**: A população em geral, incluindo pessoas com deficiência, pode se cadastrar e contribuir com o censo. Esses usuários têm acesso às funcionalidades básicas da aplicação, como cadastro, visualização de suas informações e acesso a informações úteis sobre empregos, eventos, leis e notícias. Também podem vizualir dados e extrair relatórios simplificados.
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Tecnologias Utilizadas
+## Learn More
 
-O projeto está sendo desenvolvido utilizando as seguintes tecnologias:
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-- Linguagem de programação WEB: JavaScript + NodeJS
-- Framework web: React
-- Linguagem de programação Mobile: Java
-- Framework Mobile: A DEFINIR
-- Banco de dados: PostgreSQL
-- Bibliotecas adicionais: A DEFINIR
+To learn React, check out the [React documentation](https://reactjs.org/).
 
-## Autores
+### Code Splitting
 
-- Alex Francis Bannach.
-- Eduardo Koch.
-- Leando Kuhlmann.
-- Lucas Eduardo Sasse.
-- Rafael Cristiano Conti.
+This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
 
-## Licença
+### Analyzing the Bundle Size
 
-A DEFINIR
+This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+
+### Making a Progressive Web App
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+
+### Advanced Configuration
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+
+### Deployment
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+
+### `npm run build` fails to minify
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify

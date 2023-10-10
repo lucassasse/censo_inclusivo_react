@@ -1,27 +1,26 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { createBrowserRouter, RouterProvider, } from "react-router-dom";
-import './index.css';
+import { ColorModeScript } from '@chakra-ui/react';
+import React, { StrictMode } from 'react';
+import * as ReactDOM from 'react-dom/client';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+import * as serviceWorker from './serviceWorker';
 
-import Login from './components/pages/Login';
-import Register from './components/pages/Register';
-import ErrorPage from './components/pages/Error-page';
+const container = document.getElementById('root');
+const root = ReactDOM.createRoot(container);
 
-const router = createBrowserRouter([
-	{
-	  path: "/",
-	  element: <Login />,
-	  errorElement: <ErrorPage />,
-	},
-	{
-		path: "/register",
-		element: <Register />,
-		errorElement: <ErrorPage />,
-	  },
-  ]);
-
-ReactDOM.createRoot(document.getElementById("root")).render(
-	<React.StrictMode>
-		<RouterProvider router={router} />
-	</React.StrictMode>
+root.render(
+  <StrictMode>
+    <ColorModeScript />
+    <App />
+  </StrictMode>
 );
+
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://cra.link/PWA
+serviceWorker.unregister();
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
