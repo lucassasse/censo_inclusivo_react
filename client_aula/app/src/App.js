@@ -20,6 +20,7 @@ function App() {
         <Routes>
           <Route path="login" element={<LoginForm />} />
           <Route path="home" element={<h1>Página HOME</h1>} />
+          <Route path="*" element={<h1>Página Inexistente!</h1>} />
         </Routes>
       </BrowserRouter>
     </ChakraProvider>
