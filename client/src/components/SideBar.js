@@ -8,8 +8,8 @@ export function SideBar({ collapse }) {
     return (
         <React.Fragment>
             <Box>
-                <LogoSearch />
-                <SwitchButtons />
+                <LogoSearch collapse={collapse} />
+                <SwitchButtons collapse={collapse} />
                 <Navigation collapse={collapse} />
             </Box>
             {/* AVATAR BOX */}

@@ -26,10 +26,10 @@ export function NavItem({ item, isActive, collapse }) {
                     fontWeight="medium"
                     color={isActive ? "black" : "gray.400"}
                     w="full"
-                    justifyContent={collapse ? "center" : ""}
+                    justifyContent={!collapse ? "center" : ""}
                 >
                     <ListIcon as={icon} fontSize={20} m="0" />
-                    {!collapse && label}
+                    {collapse && <Text>{label}</Text>}
                 </LinkChakra>
                 {collapse && (
                     <React.Fragment>

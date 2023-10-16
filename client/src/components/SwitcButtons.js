@@ -1,53 +1,61 @@
 import React, { useState } from "react";
-import { Button, Flex } from "@chakra-ui/react";
+import { Button, Flex, Switch } from "@chakra-ui/react";
 
-export function SwitchButtons() {
+export function SwitchButtons({ collapse }) {
     const [isPersonal, setIsPersonal] = useState(true);
     const [isBusiness, setIsBusiness] = useState(false);
 
-    const handleIsPersonalIsBusiness = (target) => {
-        if (target.target.id === "personal") {
-            setIsPersonal(true);
-            setIsBusiness(false);
-        } if (target.target.id === "business") {
-            setIsPersonal(false);
-            setIsBusiness(true);
-        }
+    const handleIsPersonal = () => {
+        setIsBusiness(false);
+        setIsPersonal(true);
+    };
+
+    const handleIsBusiness = () => {
+        setIsPersonal(false);
+        setIsBusiness(true);
+    };
+
+    if (!collapse) {
+        return (
+            <Flex w="full" alignItems="center" textAlign="center" py={6}>
+                <Switch w="full" colorScheme="teal" />
+            </Flex>
+        );
     }
 
     return (
         <Flex
-            w={"full"}
+            w="full"
             borderWidth={1}
-            borderColor={"gray.100"}
-            borderRadius={"14"}
+            borderColor="gray.100"
+            borderRadius={14}
             my={6}
         >
             <Button
-                w={"full"}
+                w="full"
                 variant={isPersonal ? "solid" : "ghost"}
                 borderRadius={14}
                 colorScheme={isPersonal ? "messenger" : "gray"}
                 id="personal"
-                textTransform={"uppercase"}
-                size={"sm"}
+                onClick={handleIsPersonal}
+                textTransform="uppercase"
+                color={isPersonal ? "white" : "gray.500"}
+                size="sm"
                 py={5}
-                onClick={handleIsPersonalIsBusiness}
             >
                 Personal
             </Button>
             <Button
-                w={"full"}
+                w="full"
                 variant={isBusiness ? "solid" : "ghost"}
                 borderRadius={14}
                 colorScheme={isBusiness ? "messenger" : "gray"}
                 id="business"
-                textTransform={"uppercase"}
+                onClick={handleIsBusiness}
+                textTransform="uppercase"
                 color={isBusiness ? "white" : "gray.500"}
-                size={"sm"}
+                size="sm"
                 py={5}
-                onClick={handleIsPersonalIsBusiness}
-
             >
                 Business
             </Button>
