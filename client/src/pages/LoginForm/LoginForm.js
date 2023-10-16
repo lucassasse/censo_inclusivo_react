@@ -12,6 +12,7 @@ import {
 	Input,
 	Link,
 	Stack,
+	Text,
 	VStack,
 } from '@chakra-ui/react';
 import { Logo } from './logo';
@@ -115,8 +116,9 @@ export function LoginForm() {
 						<CardBody>
 							<Center>
 								<HStack fontSize='sm' spacing='1'>
+									<Text>Novo no CEI?</Text>
 									<Link isExternal color='#0969da' href='#'>
-										Criar conta.
+										Crie a sua conta aqui.
 									</Link>
 								</HStack>
 							</Center>
