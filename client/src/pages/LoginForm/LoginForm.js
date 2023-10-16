@@ -1,15 +1,20 @@
 import React, { useState } from 'react';
 import {
-	VStack,
-	FormControl,
-	Input,
-	FormLabel,
+	Box,
 	Button,
-	Alert,
-	AlertIcon,
-	AlertTitle,
-	AlertDescription,
+	Card,
+	CardBody,
+	Center,
+	FormControl,
+	FormLabel,
+	Heading,
+	HStack,
+	Input,
+	Link,
+	Stack,
+	VStack,
 } from '@chakra-ui/react';
+import { Logo } from './logo';
 import AuthService from '../../services/AuthService';
 
 export function LoginForm() {
@@ -38,35 +43,103 @@ export function LoginForm() {
 	};
 
 	return (
-		<VStack spacing={3} width={300} margin="auto">
-			<FormControl id="email">
-				<FormLabel>E-mail</FormLabel>
-				<Input
-					type="email"
-					placeholder="Informe o email"
-					onChange={handleEmailChange}
-				></Input>
-			</FormControl>
+		<Box>
+			<Center>
+				<Stack spacing='4'>
+					<VStack as='header' spacing='6' mt='8'>
+						<Logo />
+						<Heading
+							as='h1'
+							fontWeight='300'
+							fontSize='24px'
+							letterSpacing='-0.5px'
+						>
+							Cei - Censo Inclusivo
+						</Heading>
+					</VStack>
+					<Card bg='#f6f8fa' variant='outline' borderColor='#d8dee4' w='308px'>
+						<CardBody>
+							<form>
+								<Stack spacing='4'>
+									<FormControl>
+										<FormLabel size='sm'>Usuário ou Email</FormLabel>
+										<Input
+											type='text'
+											bg='white'
+											borderColor='#d8dee4'
+											size='sm'
+											borderRadius='6px'
+											onChange={handleEmailChange}
+										/>
+									</FormControl>
+									<FormControl>
+										<HStack justify='space-between'>
+											<FormLabel size='sm'>Password</FormLabel>
+											<Button
+												as='a'
+												href='#'
+												variant='link'
+												size='xs'
+												color='#0969da'
+												fontWeight='500'
+											>
+												recuperar senha?
+											</Button>
+										</HStack>
+										<Input
+											type='password'
+											bg='white'
+											borderColor='#d8dee4'
+											size='sm'
+											borderRadius='6px'
+											onChange={handlePasswordChange}
+										/>
+									</FormControl>
 
-			<FormControl id="password">
-				<FormLabel>Senha</FormLabel>
-				<Input
-					placeholder="Informe a senha"
-					type="password"
-					onChange={handlePasswordChange}
-				></Input>
-			</FormControl>
+									<Button
+										bg='#2da44e'
+										color='white'
+										size='sm'
+										_hover={{ bg: '#2c974b' }}
+										_active={{ bg: '#298e46' }}
+										onClick={handleLogin}
+									>
+										Login
+									</Button>
+								</Stack>
+							</form>
+						</CardBody>
+					</Card>
 
-			<Button colorScheme="blue" onClick={handleLogin}>
-				Login
-			</Button>
-			{error && (
-				<Alert status="error">
-					<AlertIcon />
-					<AlertTitle>ERRO!</AlertTitle>
-					<AlertDescription>Erro ao tentar logar.</AlertDescription>
-				</Alert>
-			)}
-		</VStack>
+					<Card variant='outline' borderColor='#d0d7de'>
+						<CardBody>
+							<Center>
+								<HStack fontSize='sm' spacing='1'>
+									<Link isExternal color='#0969da' href='#'>
+										Criar conta.
+									</Link>
+								</HStack>
+							</Center>
+						</CardBody>
+					</Card>
+				</Stack>
+			</Center>
+			<Center as='footer' mt='16'>
+				<HStack spacing='4' pt='2'>
+					<Link isExternal color='#0969da' href='#' fontSize='xs'>
+						Termos
+					</Link>
+					<Link isExternal color='#0969da' href='#' fontSize='xs'>
+						Privacidade
+					</Link>
+					<Link isExternal color='#0969da' href='#' fontSize='xs'>
+						Segurança
+					</Link>
+					<Link isExternal href='#' fontSize='xs'>
+						Contato
+					</Link>
+				</HStack>
+			</Center>
+		</Box>
 	);
 }
