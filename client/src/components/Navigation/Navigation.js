@@ -1,4 +1,4 @@
-import { IconProps, List, ListItem, Text } from "@chakra-ui/react";
+import { List, ListItem } from "@chakra-ui/react";
 import {
     RiDashboardLine,
     RiShoppingBagLine,
@@ -12,13 +12,16 @@ import {
 } from "react-icons/ri";
 import { NavItem } from "./NavItem";
 import React from "react";
+import { Link } from "react-router-dom";
+
 
 const items = [
     {
         type: "link",
         label: "Painel do Usuário",
         icon: RiDashboardLine,
-        path: "/",
+        path: "/cadastro",
+
     },
     {
         type: "link",
@@ -82,7 +85,9 @@ export function Navigation({ collapse }) {
         <List w="full" my={8}>
             {items.map((item, index) => (
                 <ListItem key={index}>
-                    <NavItem item={item} isActive={index === 0} collapse={collapse} />
+                    <Link to={item.path}>
+                        <NavItem item={item} isActive={index === 0} collapse={collapse} />
+                    </Link>
                 </ListItem>
             ))}
         </List>

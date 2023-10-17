@@ -1,4 +1,5 @@
-import { Link } from "@chakra-ui/react";
+
+import { Link as ReactRouterLink } from "@chakra-ui/react";
 import {
     ListIcon,
     Link as LinkChakra,
@@ -9,8 +10,10 @@ import {
 } from "@chakra-ui/react";
 import React from "react";
 
+
 export function NavItem({ item, isActive, collapse }) {
     const { label } = item;
+
 
     if (item.type === "link") {
         const { icon, notifications, messages } = item;
@@ -18,7 +21,7 @@ export function NavItem({ item, isActive, collapse }) {
             <Box display="flex" alignItems="center" my={6} justifyContent="center">
                 <LinkChakra
                     href=""
-                    as={Link}
+                    as={ReactRouterLink}
                     gap={1}
                     display="flex"
                     alignItems="center"

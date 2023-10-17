@@ -7,6 +7,7 @@ import {
 
 import { LoginForm } from './pages/LoginForm/LoginForm';
 import { SideBarModelo } from './pages/SideBar/SideBarModelo';
+import { Cadastro } from './pages/Cadastro/Cadastro';
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
         <Routes>
           <Route path="/" element={<LoginForm />} />
           <Route path="home" element={<SideBarModelo />} />
-          <Route path="*" element={<h1>Página Inexistente!</h1>} />
+          <Route path="/cadastro" element={<Cadastro />} />
         </Routes>
       </BrowserRouter>
     </ChakraProvider>

@@ -14,6 +14,9 @@ import {
 	Stack,
 	Text,
 	VStack,
+	Alert,
+	AlertIcon,
+	AlertDescription,
 } from '@chakra-ui/react';
 import { Logo } from './logo';
 import AuthService from '../../services/AuthService';
@@ -107,6 +110,14 @@ export function LoginForm() {
 									>
 										Login
 									</Button>
+									{error && (
+										<Alert status='error'>
+											<AlertIcon />
+											<AlertDescription>
+												Email ou senha incorretos
+											</AlertDescription>
+										</Alert>
+									)}
 								</Stack>
 							</form>
 						</CardBody>

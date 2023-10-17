@@ -1,7 +1,7 @@
 import React from "react";
 import { Flex, HStack, IconButton, Text } from "@chakra-ui/react";
 import { MdMenu } from "react-icons/md";
-import { SideBar } from "../../components/SideBar";
+import { SideBar } from "../../components/SideBar/SideBar";
 
 
 export function SideBarModelo() {
