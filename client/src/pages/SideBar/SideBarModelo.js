@@ -1,14 +1,14 @@
 import React from "react";
-import { Flex, HStack, IconButton, Text } from "@chakra-ui/react";
-import { MdMenu } from "react-icons/md";
+import { Flex, HStack, } from "@chakra-ui/react";
 import { SideBar } from "../../components/SideBar/SideBar";
+import { Cadastro } from "../Cadastro/Cadastro";
 
 
 export function SideBarModelo() {
-    const [collapse, setCollapse] = React.useState(false);
+    const [collapse] = React.useState(true);
 
     return (
-        <HStack w="full" h="150vh" bg="gray.100" padding={10} >
+        <HStack w="full" h="100vh" bg="#8AB2D3" padding={10} >
             {/* Side Bar */}
             <Flex
                 as="aside"
@@ -40,15 +40,7 @@ export function SideBarModelo() {
                 position={"relative"}
                 borderRadius={"3xl"}
             >
-                <IconButton
-                    aria-label="Menu Collapse"
-                    icon={<MdMenu />}
-                    position={"absolute"}
-                    top={6}
-                    left={6}
-                    onClick={() => setCollapse(!collapse)}
-                />
-                <Text fontSize={100} color={"gray.300"}>Main</Text>
+                <Cadastro />
             </Flex>
 
         </HStack >
