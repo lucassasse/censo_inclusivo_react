@@ -15,7 +15,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<LoginForm />} />
-          <Route path="home" element={<SideBarModelo />} />
+          <Route path="/home" element={<SideBarModelo />} />
           <Route path="/cadastro" element={<Cadastro />} />
         </Routes>
       </BrowserRouter>

@@ -24,11 +24,10 @@ app.use('/api', authRouter);
 
 app.get("/", (req, res) => {
 	res.send({
-		nome: 'Joao',
+		name: 'Joao',
 		telefone: '47 999999999'
 	});
 });
-
 
 app.listen(port, () => {
 	console.log('Server online on port: ' + port)

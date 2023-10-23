@@ -13,7 +13,7 @@ async function CreateTableUser() {
             )
         `)
 		await connection.end();
-		console.log('Table criada!!!');
+		console.log('Tabela criada!!!');
 	} catch (error) {
 		console.log('Error creating tabel user: ', error);
 	}
