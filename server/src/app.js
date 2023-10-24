@@ -25,7 +25,7 @@ app.use('/api', authRouter);
 app.get("/", (req, res) => {
 	res.send({
 		name: 'Joao',
-		telefone: '47 999999999'
+		password: '123456789'
 	});
 });
 

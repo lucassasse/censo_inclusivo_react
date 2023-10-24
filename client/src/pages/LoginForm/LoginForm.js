@@ -47,112 +47,118 @@ export function LoginForm() {
 	};
 
 	return (
-		<Box>
-			<Center>
-				<Stack spacing='4'>
-					<VStack as='header' spacing='6' mt='8'>
-						<Logo />
-						<Heading
-							as='h1'
-							fontWeight='300'
-							fontSize='24px'
-							letterSpacing='-0.5px'
-						>
-							Cei - Censo Inclusivo
-						</Heading>
-					</VStack>
-					<Card bg='#f6f8fa' variant='outline' borderColor='#d8dee4' w='308px'>
-						<CardBody>
-							<form>
-								<Stack spacing='4'>
-									<FormControl>
-										<FormLabel size='sm'>Usuário ou Email</FormLabel>
-										<Input
-											type='text'
-											bg='white'
-											borderColor='#d8dee4'
-											size='sm'
-											borderRadius='6px'
-											onChange={handleEmailChange}
-										/>
-									</FormControl>
-									<FormControl>
-										<HStack justify='space-between'>
-											<FormLabel size='sm'>Password</FormLabel>
-											<Button
-												as='a'
-												href='#'
-												variant='link'
-												size='xs'
-												color='#0969da'
-												fontWeight='500'
-											>
-												recuperar senha?
-											</Button>
-										</HStack>
-										<Input
-											type='password'
-											bg='white'
-											borderColor='#d8dee4'
-											size='sm'
-											borderRadius='6px'
-											onChange={handlePasswordChange}
-										/>
-									</FormControl>
+		<>
+			<Box>
+				<Center>
+					<Stack spacing='4'>
+						<VStack as='header' spacing='6' mt='8'>
+							<Logo />
+							<Heading
+								as='h1'
+								fontWeight='300'
+								fontSize='24px'
+								letterSpacing='-0.5px'
+							>
+								Cei - Censo Inclusivo
+							</Heading>
+						</VStack>
 
-									<Button
-										bg='#2da44e'
-										color='white'
-										size='sm'
-										_hover={{ bg: '#2c974b' }}
-										_active={{ bg: '#298e46' }}
-										onClick={handleLogin}
-									>
-										Login
-									</Button>
-									{error && (
-										<Alert status='error'>
-											<AlertIcon />
-											<AlertDescription>
-												Email ou senha incorretos
-											</AlertDescription>
-										</Alert>
-									)}
-								</Stack>
-							</form>
-						</CardBody>
-					</Card>
+						<Card bg='#f6f8fa' variant='outline' borderColor='#d8dee4' w='308px'>
+							<CardBody>
+								<form>
+									<Stack spacing='4'>
+										<FormControl>
+											<FormLabel size='sm'>CPF do usuário</FormLabel>
+											<Input
+												type='text'
+												bg='white'
+												borderColor='#d8dee4'
+												size='sm'
+												borderRadius='6px'
+												placeholder='CPF...'
+												onChange={handleEmailChange}
+											/>
+										</FormControl>
+										<FormControl>
+											<HStack justify='space-between'>
+												<FormLabel size='sm'>Senha</FormLabel>
+												<Button
+													as='a'
+													href='#'
+													variant='link'
+													size='xs'
+													color='#0969da'
+													fontWeight='500'
+												>
+													recuperar senha?
+												</Button>
+											</HStack>
+											<Input
+												type='password'
+												bg='white'
+												borderColor='#d8dee4'
+												size='sm'
+												borderRadius='6px'
+												placeholder='Senha...'
+												onChange={handlePasswordChange}
+											/>
+										</FormControl>
 
-					<Card variant='outline' borderColor='#d0d7de'>
-						<CardBody>
-							<Center>
-								<HStack fontSize='sm' spacing='1'>
-									<Text>Novo no CEI?</Text>
-									<Link isExternal color='#0969da' href='#'>
-										Crie a sua conta aqui.
-									</Link>
-								</HStack>
-							</Center>
-						</CardBody>
-					</Card>
-				</Stack>
-			</Center>
-			<Center as='footer' mt='16'>
-				<HStack spacing='4' pt='2'>
-					<Link isExternal color='#0969da' href='#' fontSize='xs'>
-						Termos
-					</Link>
-					<Link isExternal color='#0969da' href='#' fontSize='xs'>
-						Privacidade
-					</Link>
-					<Link isExternal color='#0969da' href='#' fontSize='xs'>
-						Segurança
-					</Link>
-					<Link isExternal href='#' fontSize='xs'>
-						Contato
-					</Link>
-				</HStack>
-			</Center>
-		</Box>
+										<Button
+											bg='#0969da'
+											color='white'
+											size='sm'
+											_hover={{ bg: '#0754AD' }}
+											_active={{ bg: '#0969da' }}
+											onClick={handleLogin}
+										>
+											Login
+										</Button>
+										{error && (
+											<Alert status='error'>
+												<AlertIcon />
+												<AlertDescription>
+													Email ou senha incorretos
+												</AlertDescription>
+											</Alert>
+										)}
+									</Stack>
+								</form>
+							</CardBody>
+						</Card>
+
+						<Card variant='outline' borderColor='#d0d7de'>
+							<CardBody>
+								<Center>
+									<HStack fontSize='sm' spacing='1'>
+										<Text>Novo no CEI?</Text>
+										<Link isExternal color='#0969da' href='#'>
+											Crie a sua conta aqui.
+										</Link>
+									</HStack>
+								</Center>
+							</CardBody>
+						</Card>
+					</Stack>
+				</Center>
+
+				<Center as='footer' mt='16'>
+					<HStack spacing='4' pt='2'>
+						<Link isExternal color='#0969da' href='#' fontSize='xs'>
+							Termos
+						</Link>
+						<Link isExternal color='#0969da' href='#' fontSize='xs'>
+							Privacidade
+						</Link>
+						<Link isExternal color='#0969da' href='#' fontSize='xs'>
+							Segurança
+						</Link>
+						<Link isExternal href='#' fontSize='xs'>
+							Contato
+						</Link>
+					</HStack>
+				</Center>
+			</Box>
+		</>
 	);
 }
