@@ -32,15 +32,16 @@ export function Login() {
 
 			<Center>
 				<img src={imgLogo} width={"50%"} />
-			</Center>
 
-			<Heading
-				w="90%"
-				size="lg"
-				textAlign="center"
-			>
-				Ajude a construir benefícios para você!
-			</Heading>
+				<Heading
+					w="90%"
+					size="lg"
+					textAlign="center"
+					top={3}
+				>
+					CENSO INCLUSIVO
+				</Heading>
+			</Center>
 
 			<Center>
 				<Input
@@ -51,6 +52,7 @@ export function Login() {
 					value={cpfValue}
 					onChange={handleCPFChange}
 					maxLength="15"
+					top={6}
 				/>
 			</Center>
 
@@ -61,6 +63,7 @@ export function Login() {
 					w="90%"
 					size="lg"
 					type="password"
+					top={6}
 				/>
 			</Center>
 
@@ -69,6 +72,7 @@ export function Login() {
 					w="90%"
 					size="lg"
 					bg="projectBlue.300"
+					top={4}
 					onClick={() => {
 						const loginInput = "";
 						if (!isLoginValid(loginInput)) {
@@ -96,8 +100,11 @@ export function Login() {
 				<Text
 					w="90%"
 					textAlign="center"
+					top={20}
+					fontSize="2xl"
+					bold
 				>
-					Ajude a construir benefícios para você!
+					Cadastre-se e ajude a construir benefícios para você!
 				</Text>
 			</Center>
 
@@ -106,7 +113,7 @@ export function Login() {
 					w="90%"
 					size="lg"
 					bg="projectBlue.300"
-					fontWeight="bold"
+					top={30}
 				>
 					CADASTRAR
 				</Button>
@@ -115,6 +122,8 @@ export function Login() {
 			<Center>
 				<Text
 					textAlign="center"
+					fontSize="lg"
+					top={5}
 				>
 					<Link href="#">
 						Esqueci minha senha
