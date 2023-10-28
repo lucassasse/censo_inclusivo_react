@@ -7,10 +7,8 @@ export default function App() {
 		colors: {
 			// Add new color
 			projectBlue: {
-				100: "#4AC7F5",
-				200: "#203054",
-				300: '#0969da',
-				400: '#0754AD',
+				100: '#0969da',
+				200: '#0754AD',
 			},
 		}
 	})

@@ -1,24 +1,19 @@
 import React, { useState } from 'react';
 import {
-	Box,
 	Button,
-	Card,
-	CardBody,
 	Center,
 	FormControl,
 	FormLabel,
 	Heading,
-	HStack,
 	Input,
-	Link,
-	Stack,
 	Text,
-	VStack,
-	Alert,
-	AlertIcon,
-	AlertDescription,
+	Flex,
+	Image,
+	ButtonGroup,
+	Link as ChakraLink,
 } from '@chakra-ui/react';
-import { Logo } from './logo';
+import { Link as ReactRouterLink } from 'react-router-dom'
+import imgLogo from './logo.png';
 import AuthService from '../../services/AuthService';
 
 export function LoginForm() {
@@ -45,120 +40,71 @@ export function LoginForm() {
 			setError(true);
 		}
 	};
-
 	return (
-		<>
-			<Box>
+		<Flex >
+
+			<Flex flexDirection='column' width='50vw' height='100vh'>
+				<Center mt='15vh'>
+					<Heading size='xl' color='#0969DA'>CEI - CENSO INCLUSIVO</Heading>
+				</Center>
+
+				<Center mt='3vh'>
+					<Image
+						src={imgLogo}
+						alt='Logo da aplicação Censo Inclusivo'
+					/>
+				</Center>
+
+				<Center mt='5vh'>
+					<Text fontSize='2xl' w='30vw' >
+						Cadastre-se e ajude a construir uma Jaraguá do Sul mais inclusiva!
+					</Text>
+				</Center>
+
+				<Center mt='5vh'>
+					<ButtonGroup spacing='2'>
+						<Button variant='solid' bg='#0969DA' color='white' size='lg' _hover={{ bg: '#0754AD' }} as={ReactRouterLink} to='/cadastro' href='#'>
+							CADASTRAR
+						</Button>
+					</ButtonGroup>
+				</Center>
+			</Flex>
+
+			<Flex flexDirection='column' bg='#D9D9D9' width='50vw' height='100vh'>
+				<Center mt='15vh'>
+					<Heading size='xl' color='#0969DA'>ACESSE SUA CONTA</Heading>
+				</Center>
 				<Center>
-					<Stack spacing='4'>
-						<VStack as='header' spacing='6' mt='8'>
-							<Logo />
-							<Heading
-								as='h1'
-								fontWeight='300'
-								fontSize='24px'
-								letterSpacing='-0.5px'
-							>
-								Cei - Censo Inclusivo
-							</Heading>
-						</VStack>
+					<Flex mt='5vh' flexDirection='column' w='35vw'>
+						<FormControl>
+							<FormLabel>CPF do usuário</FormLabel>
+							<Input type='email' placeholder='000.000.000-00' bg='white' />
+						</FormControl>
 
-						<Card bg='#f6f8fa' variant='outline' borderColor='#d8dee4' w='308px'>
-							<CardBody>
-								<form>
-									<Stack spacing='4'>
-										<FormControl>
-											<FormLabel size='sm'>CPF do usuário</FormLabel>
-											<Input
-												type='text'
-												bg='white'
-												borderColor='#d8dee4'
-												size='sm'
-												borderRadius='6px'
-												placeholder='CPF...'
-												onChange={handleEmailChange}
-											/>
-										</FormControl>
-										<FormControl>
-											<HStack justify='space-between'>
-												<FormLabel size='sm'>Senha</FormLabel>
-												<Button
-													as='a'
-													href='#'
-													variant='link'
-													size='xs'
-													color='#0969da'
-													fontWeight='500'
-												>
-													recuperar senha?
-												</Button>
-											</HStack>
-											<Input
-												type='password'
-												bg='white'
-												borderColor='#d8dee4'
-												size='sm'
-												borderRadius='6px'
-												placeholder='Senha...'
-												onChange={handlePasswordChange}
-											/>
-										</FormControl>
-
-										<Button
-											bg='#0969da'
-											color='white'
-											size='sm'
-											_hover={{ bg: '#0754AD' }}
-											_active={{ bg: '#0969da' }}
-											onClick={handleLogin}
-										>
-											Login
-										</Button>
-										{error && (
-											<Alert status='error'>
-												<AlertIcon />
-												<AlertDescription>
-													Email ou senha incorretos
-												</AlertDescription>
-											</Alert>
-										)}
-									</Stack>
-								</form>
-							</CardBody>
-						</Card>
-
-						<Card variant='outline' borderColor='#d0d7de'>
-							<CardBody>
-								<Center>
-									<HStack fontSize='sm' spacing='1'>
-										<Text>Novo no CEI?</Text>
-										<Link isExternal color='#0969da' href='#'>
-											Crie a sua conta aqui.
-										</Link>
-									</HStack>
-								</Center>
-							</CardBody>
-						</Card>
-					</Stack>
+						<FormControl mt='3vh'>
+							<FormLabel>Senha</FormLabel>
+							<Input type='email' placeholder='********' bg='white' />
+						</FormControl>
+					</Flex>
 				</Center>
 
-				<Center as='footer' mt='16'>
-					<HStack spacing='4' pt='2'>
-						<Link isExternal color='#0969da' href='#' fontSize='xs'>
-							Termos
-						</Link>
-						<Link isExternal color='#0969da' href='#' fontSize='xs'>
-							Privacidade
-						</Link>
-						<Link isExternal color='#0969da' href='#' fontSize='xs'>
-							Segurança
-						</Link>
-						<Link isExternal href='#' fontSize='xs'>
-							Contato
-						</Link>
-					</HStack>
+				<Center mt='5vh'>
+					<ButtonGroup spacing='2'>
+						<Button variant='solid' bg='#0969DA' color='white' size='lg' _hover={{ bg: '#0754AD' }} as={ReactRouterLink} to='/home' href='#'>
+							ENTRAR
+						</Button>
+					</ButtonGroup>
 				</Center>
-			</Box>
-		</>
+
+				<Center mt='1vh'>
+					<Text>
+						<ChakraLink as={ReactRouterLink} color='#0969DA' to='/recuperarSenha' href='#'>
+							Esqueci minha senha
+						</ChakraLink>
+					</Text>
+				</Center>
+			</Flex>
+
+		</Flex >
 	);
 }
