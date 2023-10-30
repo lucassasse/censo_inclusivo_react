@@ -86,6 +86,18 @@ export function Login() {
 				</Button>
 			</Center>
 
+			<Center>
+				<Text
+					textAlign="center"
+					fontSize="lg"
+					mt="-2vh"
+				>
+					<Link href="#">
+						Esqueci minha senha
+					</Link>
+				</Text>
+			</Center>
+
 			{showAlert && (
 				<Alert
 					title="Erro de login"
@@ -100,6 +112,7 @@ export function Login() {
 					textAlign="center"
 					fontSize="2xl"
 					bold
+					mt="5vh"
 				>
 					Cadastre-se e ajude a construir benefícios para você!
 				</Text>
@@ -110,20 +123,10 @@ export function Login() {
 					w="90%"
 					size="lg"
 					bg="projectBlue.100"
+					mt="-1vh"
 				>
 					CADASTRAR
 				</Button>
-			</Center>
-
-			<Center>
-				<Text
-					textAlign="center"
-					fontSize="lg"
-				>
-					<Link href="#">
-						Esqueci minha senha
-					</Link>
-				</Text>
 			</Center>
 
 		</VStack>
