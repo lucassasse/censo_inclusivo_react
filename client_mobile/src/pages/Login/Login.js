@@ -28,12 +28,13 @@ export function Login() {
 	}
 
 	return (
-		<VStack space={5} p={6} w="100%" top={5} h="100%" >
+		<VStack space={5} p={6} w="100%" h="100%" >
 
-			<Center>
+			<Center mt="2vh">
 				<img src={imgLogo} width={"50%"} />
 
 				<Heading
+					mt="2vh"
 					w="90%"
 					size="lg"
 					textAlign="center"
@@ -52,7 +53,6 @@ export function Login() {
 					value={cpfValue}
 					onChange={handleCPFChange}
 					maxLength="15"
-					top={6}
 				/>
 			</Center>
 
@@ -63,7 +63,6 @@ export function Login() {
 					w="90%"
 					size="lg"
 					type="password"
-					top={6}
 				/>
 			</Center>
 
@@ -71,8 +70,7 @@ export function Login() {
 				<Button
 					w="90%"
 					size="lg"
-					bg="projectBlue.300"
-					top={4}
+					bg="projectBlue.100"
 					onClick={() => {
 						const loginInput = "";
 						if (!isLoginValid(loginInput)) {
@@ -98,9 +96,8 @@ export function Login() {
 
 			<Center>
 				<Text
-					w="90%"
+					w="80%"
 					textAlign="center"
-					top={20}
 					fontSize="2xl"
 					bold
 				>
@@ -112,8 +109,7 @@ export function Login() {
 				<Button
 					w="90%"
 					size="lg"
-					bg="projectBlue.300"
-					top={30}
+					bg="projectBlue.100"
 				>
 					CADASTRAR
 				</Button>
@@ -123,7 +119,6 @@ export function Login() {
 				<Text
 					textAlign="center"
 					fontSize="lg"
-					top={5}
 				>
 					<Link href="#">
 						Esqueci minha senha

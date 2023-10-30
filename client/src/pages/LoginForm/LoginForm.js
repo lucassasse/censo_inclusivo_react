@@ -56,14 +56,14 @@ export function LoginForm() {
 				</Center>
 
 				<Center mt='5vh'>
-					<Text fontSize='2xl' w='30vw' >
+					<Text fontSize='2xl' w='30vw'>
 						Cadastre-se e ajude a construir uma Jaraguá do Sul mais inclusiva!
 					</Text>
 				</Center>
 
 				<Center mt='5vh'>
 					<ButtonGroup spacing='2'>
-						<Button variant='solid' bg='#0969DA' color='white' size='lg' _hover={{ bg: '#0754AD' }} as={ReactRouterLink} to='/cadastro' href='#'>
+						<Button variant='solid' bg='#0969DA' color='white' size='lg' _hover={{ bg: '#0754AD' }} as={ReactRouterLink} to='/cadastro'>
 							CADASTRAR
 						</Button>
 					</ButtonGroup>
@@ -71,26 +71,26 @@ export function LoginForm() {
 			</Flex>
 
 			<Flex flexDirection='column' bg='#D9D9D9' width='50vw' height='100vh'>
-				<Center mt='15vh'>
+				<Center mt='25vh'>
 					<Heading size='xl' color='#0969DA'>ACESSE SUA CONTA</Heading>
 				</Center>
 				<Center>
-					<Flex mt='5vh' flexDirection='column' w='35vw'>
+					<Flex mt='10vh' flexDirection='column' w='20vw'>
 						<FormControl>
 							<FormLabel>CPF do usuário</FormLabel>
-							<Input type='email' placeholder='000.000.000-00' bg='white' />
+							<Input type='email' placeholder='000.000.000-00' bg='white' onChange={handleEmailChange} />
 						</FormControl>
 
 						<FormControl mt='3vh'>
 							<FormLabel>Senha</FormLabel>
-							<Input type='email' placeholder='********' bg='white' />
+							<Input type='email' placeholder='********' bg='white' onChange={handlePasswordChange} />
 						</FormControl>
 					</Flex>
 				</Center>
 
 				<Center mt='5vh'>
 					<ButtonGroup spacing='2'>
-						<Button variant='solid' bg='#0969DA' color='white' size='lg' _hover={{ bg: '#0754AD' }} as={ReactRouterLink} to='/home' href='#'>
+						<Button variant='solid' bg='#0969DA' color='white' size='lg' _hover={{ bg: '#0754AD' }} as={ReactRouterLink} onClick={handleLogin} >
 							ENTRAR
 						</Button>
 					</ButtonGroup>
