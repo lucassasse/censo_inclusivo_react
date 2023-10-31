@@ -10,6 +10,9 @@ import {
 	Flex,
 	Image,
 	ButtonGroup,
+	Alert,
+	AlertIcon,
+	AlertDescription,
 	Link as ChakraLink,
 } from '@chakra-ui/react';
 import { Link as ReactRouterLink } from 'react-router-dom'
@@ -75,7 +78,7 @@ export function LoginForm() {
 					<Heading size='xl' color='#0969DA'>ACESSE SUA CONTA</Heading>
 				</Center>
 				<Center>
-					<Flex mt='10vh' flexDirection='column' w='20vw'>
+					<Flex mt='5vh' flexDirection='column' w='20vw'>
 						<FormControl>
 							<FormLabel>CPF do usuário</FormLabel>
 							<Input type='email' placeholder='000.000.000-00' bg='white' onChange={handleEmailChange} />
@@ -87,6 +90,17 @@ export function LoginForm() {
 						</FormControl>
 					</Flex>
 				</Center>
+
+				{error && (
+					<Center mt='2vh' >
+						<Alert status="error" w='20vw'>
+							<AlertIcon />
+							<AlertDescription>
+								Email ou senha incorretos
+							</AlertDescription>
+						</Alert>
+					</Center>
+				)}
 
 				<Center mt='5vh'>
 					<ButtonGroup spacing='2'>
