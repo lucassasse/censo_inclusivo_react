@@ -2,12 +2,20 @@ const mysql = require('mysql2/promise');
 const databaseConfig = require('../config/database');
 
 async function CreateUser(req, res) {
-	const { name, password } = req.query;
+	const { cpf, name, surname, birthdate, email, password } = req.query;
 	try {
 		const connection = await mysql.createConnection(databaseConfig);
-		const insertUser = `INSERT INTO user (name, password)
-                                values(?, ?)`;
-		await connection.query(insertUser, [name, password]);
+		const insertUser = `INSERT INTO user
+								(
+									cpf,
+									name,
+									surname,
+									birthdate,
+									email,
+									password
+								)
+							VALUES (?, ?, ?, ?, ?, ?);`;
+		await connection.query(insertUser, [cpf, name, surname, birthdate, email, password]);
 		await connection.end();
 		res.status(201).send({ message: 'success' });
 	} catch (error) {
@@ -55,10 +63,11 @@ async function GetUserById(req, res) {
 
 async function UpdateUser(req, res) {
 	const { id } = req.params;
-	const { name, password } = req.query;
+	const { cpf, name, surname, birthdate, email, password } = req.query;
 	try {
 		const connection = await mysql.createConnection(databaseConfig);
-		await connection.query('UPDATE user SET name = ?, password = ? WHERE id = ?', [name, password, id]);
+		await connection.query('UPDATE user SET cpf = ?, name = ?, surname = ?, birthdate = ?, email = ?, password = ? WHERE id = ?',
+			[cpf, name, surname, birthdate, email, password, id]);
 		await connection.end();
 		res.status(200).send("Update success!");
 	} catch (error) {

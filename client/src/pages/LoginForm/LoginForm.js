@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import {
 	Button,
 	Center,
@@ -16,16 +16,17 @@ import {
 	Link as ChakraLink,
 } from '@chakra-ui/react';
 import { Link as ReactRouterLink } from 'react-router-dom'
+import { IMaskInput } from "react-imask";
 import imgLogo from './logo.png';
 import AuthService from '../../services/AuthService';
 
 export function LoginForm() {
-	const [email, setEmail] = useState('');
+	const [cpf, setCpf] = useState('');
 	const [password, setPassword] = useState('');
 	const [error, setError] = useState(false);
 
-	const handleEmailChange = event => {
-		setEmail(event.target.value);
+	const handleCpfChange = event => {
+		setCpf(event.target.value);
 		setError(false);
 	};
 
@@ -36,13 +37,14 @@ export function LoginForm() {
 
 	const handleLogin = async () => {
 		try {
-			const response = await AuthService.login(email, password);
+			const response = await AuthService.login(cpf, password);
 			sessionStorage.setItem('token', response.token);
 			window.location.href = '/home';
 		} catch (error) {
 			setError(true);
 		}
 	};
+
 	return (
 		<Flex >
 
@@ -81,12 +83,21 @@ export function LoginForm() {
 					<Flex mt='5vh' flexDirection='column' w='20vw'>
 						<FormControl>
 							<FormLabel>CPF do usuário</FormLabel>
-							<Input type='email' placeholder='000.000.000-00' bg='white' onChange={handleEmailChange} />
+							<IMaskInput
+								className="chakra-input css-1wty6e9"
+								mask="000.000.000-00"
+								placeholder="Digite o seu CPF"
+								onChange={handleCpfChange}
+							/>
 						</FormControl>
 
 						<FormControl mt='3vh'>
 							<FormLabel>Senha</FormLabel>
-							<Input type='email' placeholder='********' bg='white' onChange={handlePasswordChange} />
+							<Input
+								type='password'
+								placeholder='********'
+								bg='white'
+								onChange={handlePasswordChange} />
 						</FormControl>
 					</Flex>
 				</Center>
@@ -96,7 +107,7 @@ export function LoginForm() {
 						<Alert status="error" w='20vw'>
 							<AlertIcon />
 							<AlertDescription>
-								Email ou senha incorretos
+								CPF ou senha incorretos
 							</AlertDescription>
 						</Alert>
 					</Center>
@@ -104,7 +115,14 @@ export function LoginForm() {
 
 				<Center mt='5vh'>
 					<ButtonGroup spacing='2'>
-						<Button variant='solid' bg='#0969DA' color='white' size='lg' _hover={{ bg: '#0754AD' }} as={ReactRouterLink} onClick={handleLogin} >
+						<Button
+							variant='solid'
+							bg='#0969DA'
+							color='white'
+							size='lg'
+							_hover={{ bg: '#0754AD' }}
+							as={ReactRouterLink}
+							onClick={handleLogin} >
 							ENTRAR
 						</Button>
 					</ButtonGroup>

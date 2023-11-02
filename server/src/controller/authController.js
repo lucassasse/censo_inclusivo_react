@@ -3,15 +3,15 @@ const databaseConfig = require('../config/database');
 const mysql = require('mysql2/promise');
 
 async function AuthController(req, res) {
-	const { name, password } = req.body;
+	const { cpf, password } = req.body;
 	try {
 		const connection = await mysql.createConnection(databaseConfig);
-		const select = 'SELECT * FROM user WHERE name = ? AND password = ?';
-		const [rows] = await connection.query(select, [name, password]);
+		const select = 'SELECT * FROM user WHERE cpf = ? AND password = ?';
+		const [rows] = await connection.query(select, [cpf, password]);
 		await connection.end();
-		if (rows.length == 0) throw new Error('User or password invalid!');
+		if (rows.length == 0) throw new Error('CPF or password invalid!');
 		const id = rows[0].id;
-		const token = jwt.sign({ id, name }, 'SECRET', {
+		const token = jwt.sign({ id, cpf }, 'SECRET', {
 			expiresIn: 300,
 		});
 		res.status(200).send(
