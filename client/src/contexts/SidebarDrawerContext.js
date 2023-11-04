@@ -1,20 +1,16 @@
-import { useDisclosure } from "@chakra-ui/react";
-import { createContext } from "react";
+import { useDisclosure } from '@chakra-ui/react';
+import { createContext, useContext } from 'react';
 
-const SidebarDrawerContextData = () => useDisclosureReturn();
-
-
-const SidebarDrawerContext = createContext({ SidebarDrawerContextData });
+const SidebarDrawerContext = createContext();
 
 export function SidebarDrawerProvider({ children }) {
+  const disclouse = useDisclosure();
 
-    const disclouse = useDisclosure();
-
-    return (
-        <SidebarDrawerContext.Provider value={disclouse}>
-            {children}
-        </SidebarDrawerContext.Provider>
-    );
+  return (
+    <SidebarDrawerContext.Provider value={disclouse}>
+      {children}
+    </SidebarDrawerContext.Provider>
+  );
 }
 
 export const useSidebarDrawer = () => useContext(SidebarDrawerContext);
