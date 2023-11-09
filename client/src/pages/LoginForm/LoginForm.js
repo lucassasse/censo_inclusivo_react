@@ -16,7 +16,6 @@ import {
   Link as ChakraLink,
 } from '@chakra-ui/react';
 import { Link as ReactRouterLink, redirect } from 'react-router-dom';
-import IMaskInput from 'react-input-mask';
 import { useAuthentication } from '../../contexts';
 import imgLogo from './logo.png';
 
