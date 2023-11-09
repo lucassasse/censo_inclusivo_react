@@ -17,7 +17,7 @@ async function CreateTableUser() {
 				)
 			VALUES
 				(
-					'123.456.789-01',
+					'12345678901',
 					'Joao',
 					'Silva',
 					'2000-01-01',

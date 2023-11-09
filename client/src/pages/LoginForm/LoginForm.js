@@ -16,7 +16,7 @@ import {
   Link as ChakraLink,
 } from '@chakra-ui/react';
 import { Link as ReactRouterLink, redirect } from 'react-router-dom';
-import { IMaskInput } from 'react-imask';
+import IMaskInput from 'react-input-mask';
 import { useAuthentication } from '../../contexts';
 import imgLogo from './logo.png';
 
@@ -91,9 +91,8 @@ export function LoginForm() {
           <Flex mt="5vh" flexDirection="column" w="20vw">
             <FormControl>
               <FormLabel>CPF do usuário</FormLabel>
-              <IMaskInput
+              <Input
                 className="chakra-input css-1wty6e9"
-                mask="000.000.000-00"
                 placeholder="Digite o seu CPF"
                 onChange={handleCpfChange}
               />
