@@ -1,5 +1,9 @@
 {
   "dependencies": {
+<<<<<<< HEAD
     "react-input-mask": "^2.0.4"
+=======
+    "react-router-dom": "^6.18.0"
+>>>>>>> b48c80856ea8632e09c43971280f695ce4f0b75d
   }
 }

@@ -1,7 +1,7 @@
 import React from 'react';
-import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import { ChakraProvider, theme } from '@chakra-ui/react';
 
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import { LoginForm } from './pages/LoginForm/LoginForm';
 import { SideBarModelo } from './pages/SideBar/SideBarModelo';
 import { Home } from './pages/Home/Home';

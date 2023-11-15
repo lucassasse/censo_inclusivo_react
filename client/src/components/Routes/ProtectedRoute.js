@@ -1,7 +1,5 @@
-import { Navigate, Outlet, useHistory } from 'react-router-dom';
+import { Navigate, Outlet, useNavigate } from 'react-router-dom';
 import { useAuthentication } from '../../contexts/Authentication';
-
-// https://www.robinwieruch.de/react-router-private-routes/
 
 /**
  * Verifica se o usuário está logado
@@ -11,10 +9,10 @@ import { useAuthentication } from '../../contexts/Authentication';
  */
 export const ProtectedRoute = ({ routeToRedirect, children }) => {
   const authentication = useAuthentication();
-  const history = useHistory()
+  const navigate = useNavigate(); // Corrected this line
 
   if (!authentication.token) {
-    history.push("/")
+    navigate("/") // Corrected this line
     return <Navigate to={routeToRedirect} replace />;
   }
 
