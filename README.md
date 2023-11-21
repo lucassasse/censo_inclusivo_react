@@ -1,57 +1,55 @@
 # Censo Inclusivo - Contando todos
 
-Repositório exclusivo para desenvolvimento do projeto Censo Inclusivo, desenvolvido em equipe, pela UniSENAI em conjunto com a Prefeitura Municipal de Jaraguá do Sul.
+RepositÃ³rio exclusivo para desenvolvimento do projeto Censo Inclusivo, desenvolvido em equipe, pela UniSENAI em conjunto com a Prefeitura Municipal de JaraguÃ¡ do Sul.
 
-Este é um projeto de aplicação web e mobile, desenvolvido para realizar um censo da cidade de Jaraguá do Sul, com o objetivo de apurar o número de pessoas com deficiência em cada bairro. A aplicação permite que qualquer pessoa se cadastre e registre sua(s) deficiência(s), fornecendo dados valiosos para a criação de estatísticas para o planejamento de políticas públicas inclusivas dentro do município.
+Este Ã© um projeto de aplicaÃ§Ã£o web e mobile, desenvolvido para realizar um censo da cidade de JaraguÃ¡ do Sul, com o objetivo de apurar o nÃºmero de pessoas com deficiÃªncia em cada bairro. A aplicaÃ§Ã£o permite que qualquer pessoa se cadastre e registre sua(s) deficiÃªncia(s), fornecendo dados valiosos para a criaÃ§Ã£o de estatÃ­sticas para o planejamento de polÃ­ticas pÃºblicas inclusivas dentro do municÃ­pio.
 
 ## Funcionalidades
 
-A aplicação possui/possuirá as seguintes telas e funcionalidades:
+A aplicaÃ§Ã£o possui/possuirÃ¡ as seguintes telas e funcionalidades:
 
-1. **Login**: Permite que os usuários acessem a aplicação utilizando suas credenciais.
+1. **Login**: Permite que os usuÃ¡rios acessem a aplicaÃ§Ã£o utilizando suas credenciais.
 
-2. **Cadastro**: Permite que os usuários se cadastrem na aplicação, fornecendo informações pessoais e detalhes sobre sua(s) deficiência(s).
+2. **Cadastro**: Permite que os usuÃ¡rios se cadastrem na aplicaÃ§Ã£o, fornecendo informaÃ§Ãµes pessoais e detalhes sobre sua(s) deficiÃªncia(s).
 
-3. **Painel do Usuário**: Após o login, os usuários têm acesso a um painel personalizado onde podem visualizar e editar suas informações de cadastro.
+3. **Painel do UsuÃ¡rio**: ApÃ³s o login, os usuÃ¡rios tÃªm acesso a um painel personalizado onde podem visualizar e editar suas informaÃ§Ãµes de cadastro.
 
-4. **Estatísticas**: Permite a geração de gráficos e a extração de relatórios com base nos dados coletados no censo. Os usuários podem aplicar filtros para obter informações específicas sobre a quantidade de pessoas com deficiência em determinados bairros, de forma simples ou com detalhas avançados e específicos.
+4. **EstatÃ­sticas**: Permite a geraÃ§Ã£o de grÃ¡ficos e a extraÃ§Ã£o de relatÃ³rios com base nos dados coletados no censo. Os usuÃ¡rios podem aplicar filtros para obter informaÃ§Ãµes especÃ­ficas sobre a quantidade de pessoas com deficiÃªncia em determinados bairros, de forma simples ou com detalhas avanÃ§ados e especÃ­ficos.
 
-5. **Vagas de Empregos**: Apresenta uma lista de vagas de emprego dentro do município, voltadas para pessoas com deficiência, criando uma ponte entre as empresas e as pessoas com deficiência, facilitando a inclusão no mercado de trabalho.
+5. **Vagas de Empregos**: Apresenta uma lista de vagas de emprego dentro do municÃ­pio, voltadas para pessoas com deficiÃªncia, criando uma ponte entre as empresas e as pessoas com deficiÃªncia, facilitando a inclusÃ£o no mercado de trabalho.
 
-6. **Eventos**: Informa sobre eventos relacionados a questões de inclusão e acessibilidade, como palestras, workshops e feiras.
+6. **Eventos**: Informa sobre eventos relacionados a questÃµes de inclusÃ£o e acessibilidade, como palestras, workshops e feiras.
 
-7. **Leis e Notícias**: Disponibiliza informações atualizadas sobre legislação e notícias relevantes para a comunidade de pessoas com deficiência, principalmente dentro do município.
+7. **Leis e NotÃ­cias**: Disponibiliza informaÃ§Ãµes atualizadas sobre legislaÃ§Ã£o e notÃ­cias relevantes para a comunidade de pessoas com deficiÃªncia, principalmente dentro do municÃ­pio.
 
-8. **FAQ e Contato**: Página de perguntas frequentes, onde os usuários podem encontrar respostas para dúvidas comuns sobre o censo e a aplicação, assim como entrar em contato com os administradores da aplicação.
+8. **FAQ e Contato**: PÃ¡gina de perguntas frequentes, onde os usuÃ¡rios podem encontrar respostas para dÃºvidas comuns sobre o censo e a aplicaÃ§Ã£o, assim como entrar em contato com os administradores da aplicaÃ§Ã£o.
 
 ## Personas
 
-1. **Administrador**: É responsável por gerenciar a aplicação, monitorar o censo, realizar o cadastro de instituições municipais e garantir a integridade dos dados coletados. O administrador tem acesso a funcionalidades adicionais, como a visualização completa dos dados cadastrados e a possibilidade de exportar relatórios abrangentes.
+1. **Administrador**: Ã‰ responsÃ¡vel por gerenciar a aplicaÃ§Ã£o, monitorar o censo, realizar o cadastro de instituiÃ§Ãµes municipais e garantir a integridade dos dados coletados. O administrador tem acesso a funcionalidades adicionais, como a visualizaÃ§Ã£o completa dos dados cadastrados e a possibilidade de exportar relatÃ³rios abrangentes.
 
-2. **Entidades Municipais**: Representantes de entidades municipais têm acesso restrito à aplicação e utilizam as informações do censo para o planejamento e implementação de políticas públicas voltadas à inclusão das pessoas com deficiência no município. Podem estes, vizualizar ados e extrair relatórios avançados.
+2. **Entidades Municipais**: Representantes de entidades municipais tÃªm acesso restrito Ã  aplicaÃ§Ã£o e utilizam as informaÃ§Ãµes do censo para o planejamento e implementaÃ§Ã£o de polÃ­ticas pÃºblicas voltadas Ã  inclusÃ£o das pessoas com deficiÃªncia no municÃ­pio. Podem estes, vizualizar ados e extrair relatÃ³rios avanÃ§ados.
 
-3. **População em Geral**: A população em geral, incluindo pessoas com deficiência, pode se cadastrar e contribuir com o censo. Esses usuários têm acesso às funcionalidades básicas da aplicação, como cadastro, visualização de suas informações e acesso a informações úteis sobre empregos, eventos, leis e notícias. Também podem vizualir dados e extrair relatórios simplificados.
+3. **PopulaÃ§Ã£o em Geral**: A populaÃ§Ã£o em geral, incluindo pessoas com deficiÃªncia, pode se cadastrar e contribuir com o censo. Esses usuÃ¡rios tÃªm acesso Ã s funcionalidades bÃ¡sicas da aplicaÃ§Ã£o, como cadastro, visualizaÃ§Ã£o de suas informaÃ§Ãµes e acesso a informaÃ§Ãµes Ãºteis sobre empregos, eventos, leis e notÃ­cias. TambÃ©m podem vizualir dados e extrair relatÃ³rios simplificados.
 
 ## Tecnologias Utilizadas
 
-O projeto está sendo desenvolvido utilizando as seguintes tecnologias:
+O projeto estÃ¡ sendo desenvolvido utilizando as seguintes tecnologias:
 
-- Linguagem de programação WEB: A DEFINIR
+- Linguagem de programaÃ§Ã£o WEB: A DEFINIR
 - Framework web: A DEFINIR
-- Linguagem de programação Mobile: A DEFINIR
+- Linguagem de programaÃ§Ã£o Mobile: A DEFINIR
 - Framework Mobile: A DEFINIR
 - Banco de dados: PostgreSQL
 - Bibliotecas adicionais: A DEFINIR
 
 ## Autores
 
-- Alex Francis Bannach.
-- Eduardo Koch.
 - Leando Kuhlmann.
 - Lucas Eduardo Sasse.
 - Rafael Cristiano Conti.
 
-## Licença
+## LicenÃ§a
 
 A DEFINIR
 
@@ -59,3 +57,4 @@ A DEFINIR
 
 Server: npm run dev
 Client: npm start
+Client Mobile: npm run web
