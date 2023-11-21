@@ -55,12 +55,10 @@ export function LoginForm() {
 						<Heading
 							as='h1'
 							fontWeight='300'
-							fontSize='32px'
+							fontSize='24px'
 							letterSpacing='-0.5px'
-							style={{fontWeight: "bold"}}
-							color='#000000'
 						>
-							CEI - Censo Inclusivo
+							Cei - Censo Inclusivo
 						</Heading>
 					</VStack>
 					<Card bg='#f6f8fa' variant='outline' borderColor='#d8dee4' w='308px'>
@@ -89,7 +87,7 @@ export function LoginForm() {
 												color='#0969da'
 												fontWeight='500'
 											>
-												Recuperar senha?
+												recuperar senha?
 											</Button>
 										</HStack>
 										<Input
