@@ -1,7 +1,7 @@
 import React from "react";
 import { Flex, HStack, } from "@chakra-ui/react";
 import { SideBar } from "../../components/SideBar/SideBar";
-import { Home } from "./components";
+import { Home } from "./components/Home";
 
 
 export function BemVindo() {
