@@ -7,38 +7,29 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 export function Home() {
     const newsList = [
         {
-            contentUrl: 'https://images.unsplash.com/photo-1682685797332-e678a04f8a64?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-
-
-        },
-        {
-            contentUrl: 'https://images.unsplash.com/photo-1682687982423-295485af248a?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+            contentUrl: 'https://cdn.ocp.news/2021/12/parque-malwee-foto-andreia-nunes-1.jpg'
 
         },
         {
-            contentUrl: 'https://images.unsplash.com/photo-1682685797332-e678a04f8a64?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+            contentUrl: 'https://www.viagensecaminhos.com/wp-content/uploads/2021/07/chiesetta-alpina-jaragua-do-sul.jpg'
 
         },
         {
-
-            contentUrl: 'https://images.unsplash.com/photo-1682685797332-e678a04f8a64?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
+            contentUrl: 'https://img.apresenta.me/M7cwNbRNVktPLcjSM0m1ME1OSjQxTDMxNotPTU-MzdQ3tNBPzUnOLClKtM1UM7ItBgA.jpeg'
 
         },
-
-        {
-            contentUrl: 'https://images.unsplash.com/photo-1682685797332-e678a04f8a64?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'
-
-        }
     ];
 
     return (
-        <Box bg="white" height='400px' w='80%'>
+        <Box bg="white" height='500px' w='80%'>
             <Container maxW="container.lg" >
                 <Flex
                     justifyContent='center'
-                    marginTop={-10}
-
-                ><h1>BEM VINDO</h1>
+                    marginTop={-5}
+                    color='#0969da'
+                    fontWeight='bold'
+                    fontSize='30px'
+                ><h1>Bem Vindo</h1>
                 </Flex>
                 <Carousel
                     showArrows={true}
@@ -77,13 +68,20 @@ export function Home() {
                                     </Heading>
 
                                     <div style={{ width: '100%', height: '100%', overflow: 'hidden' }}>
-                                        <Image src={news.contentUrl} style={{ width: '100%', height: '90%', objectFit: 'contain' }} />
+                                        <Image src={news.contentUrl} style={{ width: '100%', height: '50%', objectFit: 'contain' }} />
                                     </div>
                                 </Link>
                             </Box>
                         </div>
                     ))}
                 </Carousel>
+                <Flex
+                    justifyContent='center'
+                    marginTop={-10}
+                    color='#0969da'
+                    fontSize='30px'
+                ><h1>Censo Inclusivo - Contando Todos</h1>
+                </Flex>
             </Container >
         </Box >
     );

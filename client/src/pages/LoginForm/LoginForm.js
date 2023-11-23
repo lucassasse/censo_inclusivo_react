@@ -87,7 +87,7 @@ export function LoginForm() {
 												color='#0969da'
 												fontWeight='500'
 											>
-												recuperar senha?
+												Recuperar senha?
 											</Button>
 										</HStack>
 										<Input

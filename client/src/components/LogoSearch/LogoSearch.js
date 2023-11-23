@@ -7,14 +7,13 @@ export function LogoSearch({ collapse }) {
             w={"full"}
             alignItems={"center"}
             justifyContent={"space-between"}
-            flexDirection={collapse ? "row" : "column"}
+            flexDirection={"row"}
             gap={4}
         >
             <Box display={"flex"} alignItems={"center"} gap={2}>
-                <Icon as={AiFillThunderbolt} fontSize={30} />
                 {collapse &&
-                    <Text fontSize={16} fontWeight={"bold"}>
-                        Design2ChakraUI
+                    <Text fontSize={16} fontWeight={"bold"} color={"#0969da"}>
+                        CENSO INCLUSIVO
                     </Text>
                 }
             </Box>
