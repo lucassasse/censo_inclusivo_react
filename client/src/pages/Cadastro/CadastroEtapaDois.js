@@ -9,10 +9,7 @@ import {
   Radio,
   Checkbox,
   RadioGroup,
-  ButtonGroup,
-  Button,
 } from '@chakra-ui/react';
-import { Link as ReactRouterLink, redirect } from 'react-router-dom';
 import style from './CadastroEtapaDois.module.css';
 import Fisica from './deficiencia/fisica.js';
 import Visual from './deficiencia/Visual.js';
@@ -34,6 +31,7 @@ function CadastroEtapaDois() {
 
   const handlePcd = () => {
     setPcd(!pcd);
+    setTiposDeficiencia([]);
   };
 
   const handleTiposDeficiencia = event => {
@@ -44,7 +42,6 @@ function CadastroEtapaDois() {
       updatedList.splice(tiposDeficiencia.indexOf(event.target.value), 1);
     }
     setTiposDeficiencia(updatedList);
-    console.log(updatedList);
   };
 
   return (
@@ -78,38 +75,24 @@ function CadastroEtapaDois() {
                 </Checkbox>
               ))}
             </Stack>
-            <div>div teste</div>
-            {listaDeficiencias.map(item => {
-              if (item == 'Física') {
-                <Fisica />;
-                console.log('oiii');
-              }
-              if (item == 'Visual') {
-                <Visual />;
-                console.log('oi');
+            {tiposDeficiencia.map((item, index) => {
+              switch (item) {
+                case 'Física':
+                  return <Fisica key={index} />;
+                case 'Visual':
+                  return <Visual key={index} />;
+                case 'Auditiva':
+                  return <Auditiva key={index} />;
+                case 'Intelectual':
+                  return <Intelectual key={index} />;
+                case 'Psicossocial':
+                  return <Psicossocial key={index} />;
+                default:
+                  return;
               }
             })}
-            <Fisica />
-            <Visual />
-            <Auditiva />
-            <Intelectual />
-            <Psicossocial />
           </div>
         )}
-        <Center mt="5vh">
-          <ButtonGroup spacing="2">
-            <Button
-              variant="solid"
-              bg="#0969DA"
-              color="white"
-              size="lg"
-              _hover={{ bg: '#0754AD' }}
-              as={ReactRouterLink}
-            >
-              Continuar
-            </Button>
-          </ButtonGroup>
-        </Center>
       </FormControl>
     </Center>
   );

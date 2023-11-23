@@ -11,7 +11,6 @@ import {
   ButtonGroup,
   Button,
 } from '@chakra-ui/react';
-import { Link as ReactRouterLink, redirect } from 'react-router-dom';
 import style from './CadastroEtapaUm.module.css';
 
 function CadastroEtapaUm() {
@@ -95,11 +94,6 @@ function CadastroEtapaUm() {
   return (
     <Center>
       <FormControl className={style.formControl}>
-        <div>
-          <p>No início: Possuo / Não Possuo Deficiência</p>
-          <p>Meio: Tipo da deficiencia eficiência...</p>
-          <p>No fim: Possuo mais uma deficiencia... E-mail Senha</p>
-        </div>
         <FormLabel>Nome completo</FormLabel>
         <Input type="text" />
         <FormLabel>Nome Social caso possuir</FormLabel>
@@ -143,20 +137,6 @@ function CadastroEtapaUm() {
         <Input type="text" />
         <FormLabel>Complemento</FormLabel>
         <Input type="text" />
-        <Center mt="5vh">
-          <ButtonGroup spacing="2">
-            <Button
-              variant="solid"
-              bg="#0969DA"
-              color="white"
-              size="lg"
-              _hover={{ bg: '#0754AD' }}
-              as={ReactRouterLink}
-            >
-              Continuar
-            </Button>
-          </ButtonGroup>
-        </Center>
       </FormControl>
     </Center>
   );
