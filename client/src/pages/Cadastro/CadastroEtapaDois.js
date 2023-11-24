@@ -18,6 +18,7 @@ import Intelectual from './deficiencia/Intelectual.js';
 import Psicossocial from './deficiencia/psicossocial.js';
 
 function CadastroEtapaDois() {
+  console.log('Etapa2');
   const [pcd, setPcd] = useState(true);
   const [tiposDeficiencia, setTiposDeficiencia] = useState([]);
 

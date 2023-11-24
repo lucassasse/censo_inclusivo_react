@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
   Center,
   Tabs,
@@ -15,45 +15,45 @@ import CadastroEtapaDois from './CadastroEtapaDois';
 import CadastroEtapaTres from './CadastroEtapaTres';
 
 export function Cadastro() {
-  const [etapaAtual, setEtapaAtual] = useState(1);
+  const [etapaAtual, setEtapaAtual] = useState(0);
 
   const handleProximo = () => {
-    if (etapaAtual < 3) {
+    if (etapaAtual < 2) {
       setEtapaAtual(etapaAtual + 1);
+      console.log(etapaAtual);
     }
   };
 
+  useEffect(() => {
+    console.log('useEffect ' + etapaAtual);
+  }, [etapaAtual]);
+
   return (
     <Center>
-      <Tabs isFitted variant="enclosed" className={style.divMain}>
+      <Tabs
+        isFitted
+        variant="enclosed"
+        className={style.divMain}
+        index={etapaAtual}
+      >
         <TabList mb="2em">
-          <Tab className={style.navBar} isDisabled={etapaAtual !== 1}>
-            Primeira Etapa
-          </Tab>
-          <Tab className={style.navBar} isDisabled={etapaAtual !== 2}>
-            Segunda Etapa
-          </Tab>
-          <Tab className={style.navBar} isDisabled={etapaAtual !== 3}>
-            Última Etapa
-          </Tab>
+          <Tab className={style.navBar}>Primeira Etapa</Tab>
+          <Tab className={style.navBar}>Segunda Etapa</Tab>
+          <Tab className={style.navBar}>Última Etapa</Tab>
         </TabList>
 
         <TabPanels>
-          {etapaAtual == 1 && (
-            <TabPanel>
-              <CadastroEtapaUm />
-            </TabPanel>
-          )}
-          {etapaAtual == 2 && (
-            <TabPanel>
-              <CadastroEtapaDois />
-            </TabPanel>
-          )}
-          {etapaAtual == 3 && (
-            <TabPanel>
-              <CadastroEtapaTres />
-            </TabPanel>
-          )}
+          <TabPanel>
+            <CadastroEtapaUm />
+          </TabPanel>
+
+          <TabPanel>
+            <CadastroEtapaDois />
+          </TabPanel>
+
+          <TabPanel>
+            <CadastroEtapaTres />
+          </TabPanel>
         </TabPanels>
 
         <Center mt="5vh">

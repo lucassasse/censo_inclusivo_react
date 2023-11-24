@@ -8,10 +8,8 @@ import {
   HStack,
   Radio,
   RadioGroup,
-  ButtonGroup,
-  Button,
 } from '@chakra-ui/react';
-import style from './CadastroEtapaUm.module.css';
+import styles from './CadastroEtapaUm.module.css';
 
 function CadastroEtapaUm() {
   const [cep, setCep] = useState('');
@@ -93,11 +91,11 @@ function CadastroEtapaUm() {
 
   return (
     <Center>
-      <FormControl className={style.formControl}>
+      <FormControl>
         <FormLabel>Nome completo</FormLabel>
-        <Input type="text" />
+        <Input type="text" className={styles.input} />
         <FormLabel>Nome Social caso possuir</FormLabel>
-        <Input type="email" />
+        <Input type="text" />
         <FormLabel>CPF</FormLabel>
         <Input
           type="text"
@@ -126,13 +124,33 @@ function CadastroEtapaUm() {
           onChange={e => mascaraCep(e.target.value)}
         />
         <FormLabel>Estado</FormLabel>
-        <Input type="text" value={endereco.uf} disabled />
+        <Input
+          type="text"
+          value={endereco.uf}
+          disabled
+          style={{ opacity: '1' }}
+        />
         <FormLabel>Cidade</FormLabel>
-        <Input type="text" value={endereco.localidade} disabled />
+        <Input
+          type="text"
+          value={endereco.localidade}
+          disabled
+          style={{ opacity: '1' }}
+        />
         <FormLabel>Bairro</FormLabel>
-        <Input type="text" value={endereco.bairro} disabled />
+        <Input
+          type="text"
+          value={endereco.bairro}
+          disabled
+          style={{ opacity: '1' }}
+        />
         <FormLabel>Rua</FormLabel>
-        <Input type="text" value={endereco.logradouro} disabled />
+        <Input
+          type="text"
+          value={endereco.logradouro}
+          disabled
+          style={{ opacity: '1' }}
+        />
         <FormLabel>Número</FormLabel>
         <Input type="text" />
         <FormLabel>Complemento</FormLabel>
