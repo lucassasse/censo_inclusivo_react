@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
 import {
   Input,
@@ -11,15 +11,73 @@ import {
 } from '@chakra-ui/react';
 import styles from './CadastroEtapaUm.module.css';
 
-function CadastroEtapaUm() {
+function CadastroEtapaUm({ onFormComplete }) {
   const [cep, setCep] = useState('');
   const [endereco, setEndereco] = useState({});
   const [cpf, setCpf] = useState('');
   const [cpfValido, setCpfValido] = useState(true);
+  const [nomeCompleto, setNomeCompleto] = useState('');
+  const [genero, setGenero] = useState('');
+  const [dataNascimento, setDataNascimento] = useState('');
+  const [numero, setNumero] = useState('');
+  const [camposPreenchidos, setCamposPreenchidos] = useState(false);
+
+  const handleCampoPreenchido = () => {
+    if (
+      nomeCompleto &&
+      cpfValido &&
+      genero &&
+      dataNascimento &&
+      cep &&
+      numero
+    ) {
+      setCamposPreenchidos(true);
+      console.log('true');
+      onFormComplete(true);
+    } else {
+      setCamposPreenchidos(false);
+      console.log(
+        'handleCampoPreenchido: ' +
+          nomeCompleto +
+          ' ' +
+          cpf +
+          ' ' +
+          genero +
+          ' ' +
+          dataNascimento +
+          ' ' +
+          cep +
+          ' ' +
+          numero
+      );
+      onFormComplete(false);
+    }
+  };
+
+  function handleNomeCompleto(value) {
+    setNomeCompleto(value);
+    handleCampoPreenchido();
+  }
+
+  function handleGenero(value) {
+    setGenero(value);
+    handleCampoPreenchido();
+  }
+
+  function handleDataNascimento(value) {
+    setDataNascimento(value);
+    handleCampoPreenchido();
+  }
+
+  function handleNumero(value) {
+    setNumero(value);
+    handleCampoPreenchido();
+  }
 
   const validadorCpf = value => {
     setCpf(value);
     setCpfValido(validarCPF(value));
+    handleCampoPreenchido();
   };
 
   const validarCPF = cpf => {
@@ -60,40 +118,40 @@ function CadastroEtapaUm() {
 
   const mascaraCep = value => {
     if (!value) return '';
+
     value = value.replace(/\D/g, '');
     value = value.replace(/(\d{5})(\d)/, '$1-$2');
-    setCep(value);
-    return value;
-  };
 
-  const getEndereco = async () => {
-    if (cep.length === 9) {
-      try {
-        const url = `https://viacep.com.br/ws/${cep}/json/`;
-        const resp = await axios.get(url);
-        setEndereco(resp.data);
-      } catch (error) {
-        if (error.response && error.response.status === 404) {
-          alert('CEP não encontrado!');
-        } else {
-          console.error('[ERROR] = ', error);
-          alert('Ops, algo de errado aconteceu.\n\nCEP inválido!');
-        }
-      } finally {
-        console.log('Sucesso ao buscar pelo cpf!');
-      }
+    setCep(value);
+
+    if (value.length === 9) {
+      getEndereco(value);
     }
   };
 
-  useEffect(() => {
-    getEndereco();
-  }, [cep]);
+  const getEndereco = async value => {
+    try {
+      const url = `https://viacep.com.br/ws/${value}/json/`;
+      const resp = await axios.get(url);
+      setEndereco(resp.data);
+    } catch (error) {
+      if (error.response && error.response.status === 404) {
+        alert('CEP não encontrado!');
+      } else {
+        alert('Ops, algo de errado aconteceu.\n\nCEP inválido!');
+      }
+    }
+  };
 
   return (
     <Center>
       <FormControl>
         <FormLabel>Nome completo</FormLabel>
-        <Input type="text" className={styles.input} />
+        <Input
+          type="text"
+          name="nomeCompleto"
+          onChange={e => handleNomeCompleto(e.target.value)}
+        />
         <FormLabel>Nome Social caso possuir</FormLabel>
         <Input type="text" />
         <FormLabel>CPF</FormLabel>
@@ -101,58 +159,74 @@ function CadastroEtapaUm() {
           type="text"
           maxLength="11"
           value={cpf}
+          name="cpf"
           onChange={e => validadorCpf(e.target.value)}
           isInvalid={!cpfValido} // para adicionar classe de estilo para indicar CPF inválido
         />
         {!cpfValido && <small style={{ color: 'red' }}>CPF inválido</small>}
         <FormLabel>Gênero</FormLabel>
-        <RadioGroup defaultValue="Itachi">
+        <RadioGroup onChange={handleGenero}>
           <HStack spacing="24px">
-            <Radio value="masculino">Masculino</Radio>
-            <Radio value="feminimo">Feminimo</Radio>
-            <Radio value="outros">Outros</Radio>
+            <Radio value="masculino" name="genero">
+              Masculino
+            </Radio>
+            <Radio value="feminino" name="genero">
+              Feminino
+            </Radio>
+            <Radio value="outros" name="genero">
+              Outros
+            </Radio>
           </HStack>
         </RadioGroup>{' '}
         <br />
         <FormLabel>Data de Nascimento</FormLabel>
-        <Input type="date" />
+        <Input
+          type="date"
+          name="dataNascimento"
+          onChange={e => handleDataNascimento(e.target.value)}
+        />
         <FormLabel>CEP</FormLabel>
         <Input
           type="text"
           maxLength="9"
           value={cep || ''}
+          name="cep"
           onChange={e => mascaraCep(e.target.value)}
         />
         <FormLabel>Estado</FormLabel>
         <Input
           type="text"
-          value={endereco.uf}
+          value={endereco.uf || ''}
           disabled
           style={{ opacity: '1' }}
         />
         <FormLabel>Cidade</FormLabel>
         <Input
           type="text"
-          value={endereco.localidade}
+          value={endereco.localidade || ''}
           disabled
           style={{ opacity: '1' }}
         />
         <FormLabel>Bairro</FormLabel>
         <Input
           type="text"
-          value={endereco.bairro}
+          value={endereco.bairro || ''}
           disabled
           style={{ opacity: '1' }}
         />
         <FormLabel>Rua</FormLabel>
         <Input
           type="text"
-          value={endereco.logradouro}
+          value={endereco.logradouro || ''}
           disabled
           style={{ opacity: '1' }}
         />
         <FormLabel>Número</FormLabel>
-        <Input type="text" />
+        <Input
+          type="number"
+          name="numero"
+          onChange={e => handleNumero(e.target.value)}
+        />
         <FormLabel>Complemento</FormLabel>
         <Input type="text" />
       </FormControl>

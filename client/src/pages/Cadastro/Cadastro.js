@@ -16,17 +16,15 @@ import CadastroEtapaTres from './CadastroEtapaTres';
 
 export function Cadastro() {
   const [etapaAtual, setEtapaAtual] = useState(0);
+  const [camposPreenchidos, setCamposPreenchidos] = useState(false);
 
   const handleProximo = () => {
-    if (etapaAtual < 2) {
+    if (etapaAtual < 2 && camposPreenchidos) {
       setEtapaAtual(etapaAtual + 1);
-      console.log(etapaAtual);
     }
   };
 
-  useEffect(() => {
-    console.log('useEffect ' + etapaAtual);
-  }, [etapaAtual]);
+  useEffect(() => {}, [etapaAtual]);
 
   return (
     <Center>
@@ -44,7 +42,7 @@ export function Cadastro() {
 
         <TabPanels>
           <TabPanel>
-            <CadastroEtapaUm />
+            <CadastroEtapaUm onFormComplete={setCamposPreenchidos} />
           </TabPanel>
 
           <TabPanel>
