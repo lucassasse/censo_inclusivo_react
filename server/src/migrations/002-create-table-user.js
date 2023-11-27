@@ -8,12 +8,16 @@ async function CreateTableUser() {
 		await connection.query(`
             CREATE TABLE IF NOT EXISTS user (
                 id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-                name VARCHAR(255),
-                password VARCHAR(255)
-            )
+                cpf VARCHAR(14) NOT NULL UNIQUE,
+				name VARCHAR(255) NOT NULL,
+				surname VARCHAR(255) NOT NULL,
+				birthdate VARCHAR(255) NOT NULL,
+				email VARCHAR(255) NOT NULL,
+                password VARCHAR(255) NOT NULL
+            );
         `)
 		await connection.end();
-		console.log('Table criada!!!');
+		console.log('Tabela criada!!!');
 	} catch (error) {
 		console.log('Error creating tabel user: ', error);
 	}
