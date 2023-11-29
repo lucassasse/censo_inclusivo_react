@@ -1,6 +1,15 @@
-﻿import React from 'react';
-import { Box, Container, Flex, Heading, Image, Link } from '@chakra-ui/react';
+﻿import { React } from 'react';
+import {
+  Box,
+  Container,
+  Flex,
+  Heading,
+  Image,
+  Link,
+  Center,
+} from '@chakra-ui/react';
 import { Carousel } from 'react-responsive-carousel';
+import { SideNavBar } from '../../components/SideNavBar/SideNavBar.js';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 export function Home() {
@@ -20,89 +29,82 @@ export function Home() {
   ];
 
   return (
-    <Box bg="white" height="500px" w="80%">
-      <Container maxW="container.lg">
-        <Flex
-          justifyContent="center"
-          color="#0969da"
-          fontWeight="bold"
-          fontSize="30px"
-        >
-          <h1>Bem Vindo</h1>
-        </Flex>
-        <Carousel
-          showArrows={true}
-          showStatus={true}
-          renderIndicator={(clickHandler, isSelected, index) => (
-            <div
-              key={index}
-              onClick={clickHandler}
-              style={{
-                background: isSelected ? '#4169E1' : '#fff',
-                width: 15,
-                height: 15,
-                display: 'inline-block',
-                margin: '0 5px',
-                cursor: 'pointer',
-                border: `2px solid ${isSelected ? '#4169E1' : '#4169E1'}`,
-                borderRadius: '20%',
-              }}
-            />
-          )}
-          infiniteLoop={true}
-          autoPlay={true} // Habilita a mudança automática de slides
-          interval={3000}
-        >
-          {newsList.map((news, index) => (
-            <div
-              key={index}
-              style={{
-                width: '100%', // Largura fixa desejada
-                height: '100%',
-              }}
-            >
-              <Box
-                p={2}
-                borderWidth="2px"
-                borderRadius="lg"
-                bg="white"
-                maxH="100%"
-              >
-                <Link href={news.contentUrl} isExternal>
-                  <Heading as="h5" size="lg" mb={1}>
-                    {news.title}
-                  </Heading>
+    <Flex color="white">
+      <SideNavBar />
 
-                  <div
-                    style={{
-                      width: '100%',
-                      height: '100%',
-                      overflow: 'hidden',
-                    }}
-                  >
-                    <Image
-                      src={news.contentUrl}
-                      style={{
-                        width: '100%',
-                        height: '50%',
-                        objectFit: 'contain',
-                      }}
-                    />
-                  </div>
-                </Link>
-              </Box>
-            </div>
-          ))}
-        </Carousel>
-        <Flex
-          justifyContent="center"
-          marginTop={-10}
-          color="#0969da"
-          fontSize="30px"
-        >
-          <h1>Censo Inclusivo - Contando Todos</h1>
-        </Flex>
-      </Container>
-    </Box>
+      <Center w="97%">
+        <Box bg="white" w="80%">
+          <Container maxW="container.lg">
+            <Flex
+              justifyContent="center"
+              color="#0969da"
+              fontWeight="bold"
+              fontSize="30px"
+              margin="-30px 0 30px 0"
+            >
+              <h1>Bem Vindo</h1>
+            </Flex>
+            <Carousel
+              showArrows={true}
+              showStatus={true}
+              showThumbs={false}
+              renderIndicator={(clickHandler, isSelected, index) => (
+                <div
+                  key={index}
+                  onClick={clickHandler}
+                  style={{
+                    background: isSelected ? '#4169E1' : '#fff',
+                    width: 15,
+                    height: 15,
+                    display: 'inline-block',
+                    margin: '0 5px',
+                    cursor: 'pointer',
+                    border: `2px solid ${isSelected ? '#4169E1' : '#4169E1'}`,
+                    borderRadius: '20%',
+                  }}
+                />
+              )}
+              infiniteLoop={true}
+              autoPlay={true} // Habilita a mudança automática de slides
+              interval={3000}
+            >
+              {newsList.map((news, index) => (
+                <div
+                  key={index}
+                  style={{
+                    width: '100%', // Largura fixa desejada
+                    height: '100%',
+                  }}
+                >
+                  <Box p={2} borderWidth="2px" maxH="100%">
+                    <Link href={news.contentUrl} isExternal>
+                      <Heading as="h5" size="lg" mb={1}>
+                        {news.title}
+                      </Heading>
+                      <div
+                        style={{
+                          width: '100%',
+                          height: '100%',
+                          overflow: 'hidden',
+                        }}
+                      >
+                        <Image
+                          src={news.contentUrl}
+                          style={{
+                            width: '100%',
+                            height: '50%',
+                            objectFit: 'contain',
+                          }}
+                        />
+                      </div>
+                    </Link>
+                  </Box>
+                </div>
+              ))}
+            </Carousel>
+          </Container>
+        </Box>
+      </Center>
+    </Flex>
   );
 }
