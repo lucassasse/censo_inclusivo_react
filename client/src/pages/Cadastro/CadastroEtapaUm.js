@@ -36,20 +36,6 @@ function CadastroEtapaUm({ onFormComplete }) {
       onFormComplete(true);
     } else {
       setCamposPreenchidos(false);
-      console.log(
-        'handleCampoPreenchido: ' +
-          nomeCompleto +
-          ' ' +
-          cpf +
-          ' ' +
-          genero +
-          ' ' +
-          dataNascimento +
-          ' ' +
-          cep +
-          ' ' +
-          numero
-      );
       onFormComplete(false);
     }
   };

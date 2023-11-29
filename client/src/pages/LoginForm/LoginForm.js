@@ -15,8 +15,9 @@ import {
   AlertDescription,
   Link as ChakraLink,
 } from '@chakra-ui/react';
-import { Link as ReactRouterLink, redirect } from 'react-router-dom';
+import { Link as ReactRouterLink } from 'react-router-dom';
 import { useAuthentication } from '../../contexts';
+import { useNavigate } from 'react-router-dom';
 import imgLogo from './logo.png';
 
 export function LoginForm() {
@@ -24,21 +25,23 @@ export function LoginForm() {
   const [password, setPassword] = useState('');
   const [error, setError] = useState(false);
   const authentication = useAuthentication();
+  const navigate = useNavigate();
 
   const handleCpfChange = event => {
-    setCpf(event.target.value);
     setError(false);
   };
 
   const handlePasswordChange = event => {
-    setPassword(event.target.value);
     setError(false);
+    if (event.key === 'Enter') {
+      handleLogin();
+    }
   };
 
   const handleLogin = async () => {
     try {
       await authentication.login(cpf, password);
-      redirect('/home');
+      navigate.push('/home');
     } catch (error) {
       setError(true);
     }
@@ -93,7 +96,8 @@ export function LoginForm() {
               <Input
                 className="chakra-input css-1wty6e9"
                 placeholder="Digite o seu CPF"
-                onChange={handleCpfChange}
+                onChange={e => setCpf(e.target.value)}
+                onKeyUp={handleCpfChange}
               />
             </FormControl>
 
@@ -103,7 +107,8 @@ export function LoginForm() {
                 type="password"
                 placeholder="********"
                 bg="white"
-                onChange={handlePasswordChange}
+                onChange={e => setPassword(e.target.value)}
+                onKeyUp={handlePasswordChange}
               />
             </FormControl>
           </Flex>
