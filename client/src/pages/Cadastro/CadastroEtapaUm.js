@@ -20,7 +20,6 @@ function CadastroEtapaUm({ onFormComplete }) {
   const [genero, setGenero] = useState('');
   const [dataNascimento, setDataNascimento] = useState('');
   const [numero, setNumero] = useState('');
-  const [camposPreenchidos, setCamposPreenchidos] = useState(false);
 
   const handleCampoPreenchido = () => {
     if (
@@ -31,11 +30,9 @@ function CadastroEtapaUm({ onFormComplete }) {
       cep &&
       numero
     ) {
-      setCamposPreenchidos(true);
       console.log('true');
       onFormComplete(true);
     } else {
-      setCamposPreenchidos(false);
       onFormComplete(false);
     }
   };
@@ -132,15 +129,15 @@ function CadastroEtapaUm({ onFormComplete }) {
   return (
     <Center>
       <FormControl>
-        <FormLabel>Nome completo</FormLabel>
+        <FormLabel>Nome completo *</FormLabel>
         <Input
           type="text"
           name="nomeCompleto"
           onChange={e => handleNomeCompleto(e.target.value)}
         />
-        <FormLabel>Nome Social caso possuir</FormLabel>
+        <FormLabel>Nome Social - Caso possua</FormLabel>
         <Input type="text" />
-        <FormLabel>CPF</FormLabel>
+        <FormLabel>CPF *</FormLabel>
         <Input
           type="text"
           maxLength="11"
@@ -150,7 +147,7 @@ function CadastroEtapaUm({ onFormComplete }) {
           isInvalid={!cpfValido} // para adicionar classe de estilo para indicar CPF inválido
         />
         {!cpfValido && <small style={{ color: 'red' }}>CPF inválido</small>}
-        <FormLabel>Gênero</FormLabel>
+        <FormLabel>Gênero *</FormLabel>
         <RadioGroup onChange={handleGenero}>
           <HStack spacing="24px">
             <Radio value="masculino" name="genero">
@@ -165,13 +162,19 @@ function CadastroEtapaUm({ onFormComplete }) {
           </HStack>
         </RadioGroup>{' '}
         <br />
-        <FormLabel>Data de Nascimento</FormLabel>
+        <FormLabel>Data de Nascimento *</FormLabel>
         <Input
           type="date"
           name="dataNascimento"
           onChange={e => handleDataNascimento(e.target.value)}
         />
-        <FormLabel>CEP</FormLabel>
+        <FormLabel
+          style={{
+            marginTop: '10px',
+          }}
+        >
+          CEP *
+        </FormLabel>
         <Input
           type="text"
           maxLength="9"
@@ -207,7 +210,7 @@ function CadastroEtapaUm({ onFormComplete }) {
           disabled
           style={{ opacity: '1' }}
         />
-        <FormLabel>Número</FormLabel>
+        <FormLabel>Número *</FormLabel>
         <Input
           type="number"
           name="numero"

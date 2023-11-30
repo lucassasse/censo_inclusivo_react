@@ -7,12 +7,29 @@ import {
   Image,
   Link,
   Center,
+  Text,
+  Spacer,
+  ButtonGroup,
+  Button,
 } from '@chakra-ui/react';
+import { Link as ReactRouterLink, redirect } from 'react-router-dom';
+import { useAuthentication } from '../../contexts';
 import { Carousel } from 'react-responsive-carousel';
 import { SideNavBar } from '../../components/SideNavBar/SideNavBar.js';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 export function Home() {
+  const authentication = useAuthentication();
+
+  const handleLogin = async () => {
+    try {
+      await authentication.logout();
+      redirect('/');
+    } catch (error) {
+      alert('Algo errado aconteceu.');
+    }
+  };
+
   const newsList = [
     {
       contentUrl:
@@ -29,82 +46,105 @@ export function Home() {
   ];
 
   return (
-    <Flex color="white">
+    <Flex w="100%">
       <SideNavBar />
+      <Flex direction="column" w="100%">
+        <Flex
+          minWidth="max-content"
+          alignItems="center"
+          gap="2"
+          h="150px"
+          borderBottom="1px solid #0969DA"
+        >
+          <Box p="2" padding="40px" w="20%">
+            <Text
+              style={{
+                fontWeight: 'bold',
+                fontSize: '20px',
+              }}
+            >
+              Lucas Eduardo Sasse
+            </Text>
+            <Link h="50px" as={ReactRouterLink} onClick={handleLogin}>
+              Sair
+            </Link>
+          </Box>
+        </Flex>
 
-      <Center w="97%">
-        <Box bg="white" w="80%">
-          <Container maxW="container.lg">
-            <Flex
-              justifyContent="center"
-              color="#0969da"
-              fontWeight="bold"
-              fontSize="30px"
-              margin="-30px 0 30px 0"
-            >
-              <h1>Bem Vindo</h1>
-            </Flex>
-            <Carousel
-              showArrows={true}
-              showStatus={true}
-              showThumbs={false}
-              renderIndicator={(clickHandler, isSelected, index) => (
-                <div
-                  key={index}
-                  onClick={clickHandler}
-                  style={{
-                    background: isSelected ? '#4169E1' : '#fff',
-                    width: 15,
-                    height: 15,
-                    display: 'inline-block',
-                    margin: '0 5px',
-                    cursor: 'pointer',
-                    border: `2px solid ${isSelected ? '#4169E1' : '#4169E1'}`,
-                    borderRadius: '20%',
-                  }}
-                />
-              )}
-              infiniteLoop={true}
-              autoPlay={true} // Habilita a mudança automática de slides
-              interval={3000}
-            >
-              {newsList.map((news, index) => (
-                <div
-                  key={index}
-                  style={{
-                    width: '100%', // Largura fixa desejada
-                    height: '100%',
-                  }}
-                >
-                  <Box p={2} borderWidth="2px" maxH="100%">
-                    <Link href={news.contentUrl} isExternal>
-                      <Heading as="h5" size="lg" mb={1}>
-                        {news.title}
-                      </Heading>
-                      <div
-                        style={{
-                          width: '100%',
-                          height: '100%',
-                          overflow: 'hidden',
-                        }}
-                      >
-                        <Image
-                          src={news.contentUrl}
+        <Center>
+          <Box bg="white" w="80%">
+            <Container maxW="container.lg">
+              <Flex
+                justifyContent="center"
+                color="#0969da"
+                fontWeight="bold"
+                fontSize="30px"
+                margin="10px 0 10px 0"
+              >
+                <h1>Bem Vindo</h1>
+              </Flex>
+              <Carousel
+                showArrows={true}
+                showStatus={true}
+                showThumbs={false}
+                renderIndicator={(clickHandler, isSelected, index) => (
+                  <div
+                    key={index}
+                    onClick={clickHandler}
+                    style={{
+                      background: isSelected ? '#4169E1' : '#fff',
+                      width: 15,
+                      height: 15,
+                      display: 'inline-block',
+                      margin: '0 5px',
+                      cursor: 'pointer',
+                      border: `2px solid ${isSelected ? '#4169E1' : '#4169E1'}`,
+                      borderRadius: '20%',
+                    }}
+                  />
+                )}
+                infiniteLoop={true}
+                autoPlay={true}
+                interval={3000}
+              >
+                {newsList.map((news, index) => (
+                  <div
+                    key={index}
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                    }}
+                  >
+                    <Box p={2} borderWidth="2px" maxH="100%">
+                      <Link href={news.contentUrl} isExternal>
+                        <Heading as="h5" size="lg" mb={1}>
+                          {news.title}
+                        </Heading>
+                        <div
                           style={{
                             width: '100%',
-                            height: '50%',
-                            objectFit: 'contain',
+                            height: '100%',
+                            overflow: 'hidden',
                           }}
-                        />
-                      </div>
-                    </Link>
-                  </Box>
-                </div>
-              ))}
-            </Carousel>
-          </Container>
-        </Box>
-      </Center>
+                        >
+                          <Image
+                            src={news.contentUrl}
+                            style={{
+                              width: '100%',
+                              height: '50%',
+                              objectFit: 'contain',
+                            }}
+                          />
+                        </div>
+                      </Link>
+                    </Box>
+                  </div>
+                ))}
+              </Carousel>
+            </Container>
+          </Box>
+        </Center>
+      </Flex>
     </Flex>
   );
 }

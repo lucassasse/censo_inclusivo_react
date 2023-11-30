@@ -21,6 +21,10 @@ export function Cadastro() {
   const handleProximo = () => {
     if (etapaAtual < 2 && camposPreenchidos) {
       setEtapaAtual(etapaAtual + 1);
+    } else {
+      alert(
+        'Você deve preencher todos os campos obrigatórios\n\nCampos obrigatórios possume um arterísco ao lado ( * )'
+      );
     }
   };
 

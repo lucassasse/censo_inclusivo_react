@@ -27,7 +27,7 @@ export function LoginForm() {
   const authentication = useAuthentication();
   const navigate = useNavigate();
 
-  const handleCpfChange = event => {
+  const handleCpfChange = () => {
     setError(false);
   };
 
