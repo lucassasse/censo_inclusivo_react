@@ -49,7 +49,7 @@ export function LoginForm() {
 
   return (
     <Flex>
-      <Flex flexDirection="column" width="50vw" height="100vh">
+      <Flex flexDirection="column" width="50vw" height="100vh" mt="20vh">
         <Center>
           <Heading size="xl" color="#0969DA">
             CEI - CENSO INCLUSIVO
@@ -88,7 +88,7 @@ export function LoginForm() {
           flexDirection="column"
           bg="#D9D9D9"
           borderRadius="5px"
-          padding="140px 40px"
+          padding="140px 60px"
         >
           <Center>
             <Heading size="xl" color="#0969DA">
