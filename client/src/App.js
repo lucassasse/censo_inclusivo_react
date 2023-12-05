@@ -5,6 +5,7 @@ import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import { LoginForm } from './pages/LoginForm/LoginForm';
 import { Cadastro } from './pages/Cadastro/Cadastro';
 import { Home } from './pages/Home/Home';
+import { Estatisticas } from './pages/Estatisticas/Estatisticas';
 import { RecuperarSenha } from './pages/RecuperarSenha/RecuperarSenha';
 import { PublicRoute, ProtectedRoute } from './components/Routes';
 import { AuthenticationProvider } from './contexts';
@@ -23,6 +24,7 @@ function App() {
 
             <Route element={<ProtectedRoute routeToRedirect="/" />}>
               <Route path="/home" element={<Home />} />
+              <Route path="/estatisticas" element={<Estatisticas />} />
             </Route>
 
             <Route path="*" element={<p>Página não encontrada!</p>} />
