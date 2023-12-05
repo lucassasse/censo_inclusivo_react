@@ -12,8 +12,6 @@ import {
   Button,
   FormControl,
   FormLabel,
-  Input,
-  Stack,
   Select,
 } from '@chakra-ui/react';
 
@@ -69,7 +67,7 @@ export function Estatisticas() {
           </ButtonGroup>
         </Flex>
 
-        <Center margin="40px" bg="#D9D9D9" padding="150px" borderRadius="2px">
+        <Center margin="40px" bg="#D9D9D9" h="73vh" borderRadius="2px">
           <Flex mt="5vh" flexDirection="column" w="20vw">
             <FormControl>
               <FormLabel>Selecione a Deficiência</FormLabel>
@@ -82,6 +80,7 @@ export function Estatisticas() {
                 <option value="2">Auditiva</option>
                 <option value="3">Intelectual</option>
                 <option value="4">Psicossocial</option>
+                <option value="5">Todas</option>
               </Select>
             </FormControl>
 
@@ -141,6 +140,8 @@ export function Estatisticas() {
                   color="white"
                   size="lg"
                   _hover={{ bg: '#0754AD' }}
+                  as={ReactRouterLink}
+                  to="/graficos"
                 >
                   BUSCAR
                 </Button>
