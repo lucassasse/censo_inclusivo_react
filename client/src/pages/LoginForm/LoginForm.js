@@ -83,7 +83,7 @@ export function LoginForm() {
         </Center>
       </Flex>
 
-      <Center width="50vw" height="100vh">
+      <Center w="50vw" h="100vh">
         <Flex
           flexDirection="column"
           bg="#D9D9D9"
@@ -91,12 +91,10 @@ export function LoginForm() {
           padding="140px 60px"
         >
           <Center>
-            <Heading size="xl" color="#0969DA">
-              ACESSE SUA CONTA
-            </Heading>
+            <Heading color="#0969DA">ACESSE SUA CONTA</Heading>
           </Center>
           <Center>
-            <Flex mt="5vh" flexDirection="column" w="20vw">
+            <Flex mt="5vh" flexDir="column" w="20vw">
               <FormControl>
                 <FormLabel>CPF do usuário</FormLabel>
                 <Input
