@@ -59,11 +59,7 @@ function CadastroEtapaDois() {
         </RadioGroup>
         {pcd && (
           <div>
-            <FormLabel
-              style={{
-                marginTop: '15px',
-              }}
-            >
+            <FormLabel mt="3vh">
               Selecione qual ou quais deficiências você possui
             </FormLabel>
             <Stack spacing={5} direction="column">

@@ -153,9 +153,9 @@ function CadastroEtapaUm({ onFormComplete, onInputChange }) {
           name="nomeCompleto"
           onChange={e => handleNomeCompleto(e.target.value)}
         />
-        <FormLabel>Nome Social - Caso possua</FormLabel>
+        <FormLabel mt="3vh">Nome Social - Caso possua</FormLabel>
         <Input type="text" onChange={e => handleNomeSocial(e.target.value)} />
-        <FormLabel>CPF *</FormLabel>
+        <FormLabel mt="3vh">CPF *</FormLabel>
         <Input
           type="text"
           value={cpf}
@@ -164,7 +164,7 @@ function CadastroEtapaUm({ onFormComplete, onInputChange }) {
           isInvalid={!cpfValido} // para adicionar classe de estilo para indicar CPF inválido
         />
         {!cpfValido && <small style={{ color: 'red' }}>CPF inválido</small>}
-        <FormLabel>Gênero *</FormLabel>
+        <FormLabel mt="3vh">Gênero *</FormLabel>
         <RadioGroup onChange={handleGenero}>
           <HStack spacing="24px">
             <Radio value="masculino" name="genero">
@@ -179,19 +179,13 @@ function CadastroEtapaUm({ onFormComplete, onInputChange }) {
           </HStack>
         </RadioGroup>{' '}
         <br />
-        <FormLabel>Data de Nascimento *</FormLabel>
+        <FormLabel mt="1vh">Data de Nascimento *</FormLabel>
         <Input
           type="date"
           name="dataNascimento"
           onChange={e => handleDataNascimento(e.target.value)}
         />
-        <FormLabel
-          style={{
-            marginTop: '10px',
-          }}
-        >
-          CEP *
-        </FormLabel>
+        <FormLabel mt="3vh">CEP *</FormLabel>
         <Input
           type="text"
           maxLength="9"
@@ -199,41 +193,41 @@ function CadastroEtapaUm({ onFormComplete, onInputChange }) {
           name="cep"
           onChange={e => mascaraCep(e.target.value)}
         />
-        <FormLabel>Estado</FormLabel>
+        <FormLabel mt="3vh">Estado</FormLabel>
         <Input
           type="text"
           value={endereco.uf || ''}
           disabled
           style={{ opacity: '1' }}
         />
-        <FormLabel>Cidade</FormLabel>
+        <FormLabel mt="3vh">Cidade</FormLabel>
         <Input
           type="text"
           value={endereco.localidade || ''}
           disabled
           style={{ opacity: '1' }}
         />
-        <FormLabel>Bairro</FormLabel>
+        <FormLabel mt="3vh">Bairro</FormLabel>
         <Input
           type="text"
           value={endereco.bairro || ''}
           disabled
           style={{ opacity: '1' }}
         />
-        <FormLabel>Rua</FormLabel>
+        <FormLabel mt="3vh">Rua</FormLabel>
         <Input
           type="text"
           value={endereco.logradouro || ''}
           disabled
           style={{ opacity: '1' }}
         />
-        <FormLabel>Número *</FormLabel>
+        <FormLabel mt="3vh">Número *</FormLabel>
         <Input
           type="number"
           name="numero"
           onChange={e => handleNumero(e.target.value)}
         />
-        <FormLabel>Complemento</FormLabel>
+        <FormLabel mt="3vh">Complemento</FormLabel>
         <Input type="text" onChange={e => handleComplemento(e.target.value)} />
       </FormControl>
     </Center>

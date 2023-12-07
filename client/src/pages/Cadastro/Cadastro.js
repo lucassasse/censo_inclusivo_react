@@ -17,22 +17,23 @@ import CadastroEtapaTres from './CadastroEtapaTres';
 export function Cadastro() {
   const [etapaAtual, setEtapaAtual] = useState(0);
   const [camposPreenchidos, setCamposPreenchidos] = useState(false);
+
   const [dadosFormulario, setDadosFormulario] = useState({
-    nomeCompleto: 'Lusca',
-    nomeSocial: 'erg',
+    name: 'Lusca',
+    social_name: 'erg',
     cpf: '084',
-    genero: 'm',
-    dataNascimento: '18-12-1997',
+    gender: 'm',
+    birthdate: '1997-12-18',
     cep: '456',
-    numero: '28',
-    complemento: '2',
+    number: '28',
+    complement: '2',
     // Adicionar outros campos conforme necessário
   });
 
   const handleProximo = async () => {
-    if (etapaAtual == 100) {
-      //alterar o !== 3 e remover o !
-      /*if (etapaAtual !== 3 && !camposPreenchidos) {
+    //if (etapaAtual == 100) {
+    //alterar o !== 3 e remover o !
+    if (etapaAtual !== 3 && !camposPreenchidos) {
       try {
         const response = await fetch('http://localhost:3500/api/users', {
           method: 'POST',
@@ -50,7 +51,7 @@ export function Cadastro() {
       } catch (error) {
         console.error('Error:', error);
         alert('An error occurred. Please try again.');
-      }*/
+      }
     } else {
       if (etapaAtual < 2 && camposPreenchidos) {
         setEtapaAtual(etapaAtual + 1);
