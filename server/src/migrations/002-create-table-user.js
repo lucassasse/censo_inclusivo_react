@@ -15,7 +15,9 @@ async function CreateTableUser() {
 				birthdate DATE NOT NULL,
 				cep VARCHAR(9),
 				number INT NOT NULL,
-				complement VARCHAR(255) NOT NULL
+				complement VARCHAR(255) NOT NULL,
+				email VARCHAR(255) NOT NULL,
+				password VARCHAR(255) NOT NULL
 			);
         `)
 		await connection.end();
