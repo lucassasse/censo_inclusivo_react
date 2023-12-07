@@ -1,5 +1,10 @@
 function CadastroEtapaTres() {
-  return <div></div>;
+  return (
+    <div>
+      <p>E-mail</p>
+      <p>Senha</p>
+    </div>
+  );
 }
 
 export default CadastroEtapaTres;

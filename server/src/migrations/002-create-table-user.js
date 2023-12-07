@@ -6,15 +6,17 @@ async function CreateTableUser() {
 		const connection = await mysql.createConnection(databaseConfig);
 		await connection.query(`USE ${databaseConfig.database}`);
 		await connection.query(`
-            CREATE TABLE IF NOT EXISTS user (
-                id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
-                cpf VARCHAR(14) NOT NULL UNIQUE,
+			CREATE TABLE IF NOT EXISTS user (
+				id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 				name VARCHAR(255) NOT NULL,
-				surname VARCHAR(255) NOT NULL,
-				birthdate VARCHAR(255) NOT NULL,
-				email VARCHAR(255) NOT NULL,
-                password VARCHAR(255) NOT NULL
-            );
+				social_name VARCHAR(255),
+				cpf VARCHAR(14) NOT NULL UNIQUE,
+				gender VARCHAR(15) NOT NULL,
+				birthdate DATE NOT NULL,
+				cep VARCHAR(9),
+				number INT NOT NULL,
+				complement VARCHAR(255) NOT NULL
+			);
         `)
 		await connection.end();
 		console.log('Tabela criada!!!');

@@ -11,15 +11,17 @@ import {
 } from '@chakra-ui/react';
 import styles from './CadastroEtapaUm.module.css';
 
-function CadastroEtapaUm({ onFormComplete }) {
+function CadastroEtapaUm({ onFormComplete, onInputChange }) {
   const [cep, setCep] = useState('');
   const [endereco, setEndereco] = useState({});
   const [cpf, setCpf] = useState('');
   const [cpfValido, setCpfValido] = useState(true);
   const [nomeCompleto, setNomeCompleto] = useState('');
+  const [nomeSocial, setNomeSocial] = useState('');
   const [genero, setGenero] = useState('');
   const [dataNascimento, setDataNascimento] = useState('');
   const [numero, setNumero] = useState('');
+  const [complemento, setComplemento] = useState('');
 
   const handleCampoPreenchido = () => {
     if (
@@ -30,7 +32,6 @@ function CadastroEtapaUm({ onFormComplete }) {
       cep &&
       numero
     ) {
-      console.log('true');
       onFormComplete(true);
     } else {
       onFormComplete(false);
@@ -39,21 +40,37 @@ function CadastroEtapaUm({ onFormComplete }) {
 
   function handleNomeCompleto(value) {
     setNomeCompleto(value);
+    onInputChange('nomeCompleto', value);
+    handleCampoPreenchido();
+  }
+
+  function handleNomeSocial(value) {
+    setNomeSocial(value);
+    onInputChange('nomeSocial', value);
     handleCampoPreenchido();
   }
 
   function handleGenero(value) {
     setGenero(value);
+    onInputChange('genero', value);
     handleCampoPreenchido();
   }
 
   function handleDataNascimento(value) {
     setDataNascimento(value);
+    onInputChange('dataNascimento', value);
     handleCampoPreenchido();
   }
 
   function handleNumero(value) {
     setNumero(value);
+    onInputChange('numero', value);
+    handleCampoPreenchido();
+  }
+
+  function handleComplemento(value) {
+    setComplemento(value);
+    onInputChange('complemento', value);
     handleCampoPreenchido();
   }
 
@@ -61,6 +78,7 @@ function CadastroEtapaUm({ onFormComplete }) {
     setCpf(value);
     setCpfValido(validarCPF(value));
     handleCampoPreenchido();
+    onInputChange('cpf', value);
   };
 
   const validarCPF = cpf => {
@@ -136,11 +154,10 @@ function CadastroEtapaUm({ onFormComplete }) {
           onChange={e => handleNomeCompleto(e.target.value)}
         />
         <FormLabel>Nome Social - Caso possua</FormLabel>
-        <Input type="text" />
+        <Input type="text" onChange={e => handleNomeSocial(e.target.value)} />
         <FormLabel>CPF *</FormLabel>
         <Input
           type="text"
-          maxLength="11"
           value={cpf}
           name="cpf"
           onChange={e => validadorCpf(e.target.value)}
@@ -217,7 +234,7 @@ function CadastroEtapaUm({ onFormComplete }) {
           onChange={e => handleNumero(e.target.value)}
         />
         <FormLabel>Complemento</FormLabel>
-        <Input type="text" />
+        <Input type="text" onChange={e => handleComplemento(e.target.value)} />
       </FormControl>
     </Center>
   );

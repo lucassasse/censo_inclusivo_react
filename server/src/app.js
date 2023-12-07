@@ -23,14 +23,7 @@ app.use("/api", authRouter);
 //app.use(cors);
 
 app.get("/", (req, res) => {
-  res.send({
-    cpf: "123.456.789-01",
-    name: "Joao",
-    surname: "Silva",
-    birthdate: "01/01/2000",
-    email: "meu.email@email.com",
-    password: "123456789",
-  });
+  res.send({});
 });
 
 app.listen(port, () => {

@@ -2,31 +2,31 @@ const mysql = require('mysql2/promise');
 const databaseConfig = require('../config/database');
 
 async function CreateUser(req, res) {
-	const { cpf, name, surname, birthdate, email, password } = req.query;
+	const { name, social_name, cpf, gender, birthdate, cep, number, complement } = req.body;
 	try {
-		const connection = await mysql.createConnection(databaseConfig);
-		const insertUser = `INSERT INTO user
-								(
-									cpf,
-									name,
-									surname,
-									birthdate,
-									email,
-									password
-								)
-							VALUES (?, ?, ?, ?, ?, ?);`;
-		await connection.query(insertUser, [cpf, name, surname, birthdate, email, password]);
-		await connection.end();
-		res.status(201).send({ message: 'success' });
+	  const connection = await mysql.createConnection(databaseConfig);
+	  const insertUser = `INSERT INTO user
+							  (
+								  name,
+								  social_name,
+								  cpf,
+								  gender,
+								  birthdate,
+								  cep,
+								  number,
+								  complement
+							  )
+						  VALUES (?, ?, ?, ?, ?, ?, ?, ?);`;
+	  await connection.query(insertUser, [name, social_name, cpf, gender, birthdate, cep, number, complement]);
+	  await connection.end();
+	  res.status(201).send({ message: 'success' });
 	} catch (error) {
-		res.status(500).send(
-			{
-				message: 'Error adding user!',
-				body: error.message,
-			}
-		);
+	  res.status(500).send({
+		message: 'Error adding user!',
+		body: error.message,
+	  });
 	}
-}
+  }
 
 async function GetAllUsers(req, res) {
 	try {
