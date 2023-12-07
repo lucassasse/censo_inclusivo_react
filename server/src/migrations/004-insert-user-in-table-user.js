@@ -1,26 +1,34 @@
 const mysql = require('mysql2/promise');
 const databaseConfig = require('../config/database')
 
-async function CreateTableUser() {
+async function CreateTableUser() { 
 	try {
 		const connection = await mysql.createConnection(databaseConfig);
 		await connection.query(`USE ${databaseConfig.database}`);
 		await connection.query(`
 			INSERT INTO user
 				(
-					cpf,
 					name,
-					surname,
+					social_name
+					cpf,
+					gender,
 					birthdate,
+					cep,
+					number,
+					complement,
 					email,
 					password
 				)
 			VALUES
 				(
-					'12345678901',
-					'Joao',
-					'Silva',
+					'Lucas Eduardo Sasse',
+					'',
+					'123.456.789-01',
+					'm',
 					'2000-01-01',
+					'89253-555',
+					'155',
+					'',
 					'meu.email@email.com',
 					'123456789'
 				);
