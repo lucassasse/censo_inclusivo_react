@@ -17,14 +17,49 @@ import CadastroEtapaTres from './CadastroEtapaTres';
 export function Cadastro() {
   const [etapaAtual, setEtapaAtual] = useState(0);
   const [camposPreenchidos, setCamposPreenchidos] = useState(false);
+  const [dadosFormulario, setDadosFormulario] = useState({
+    nomeCompleto: 'Lusca',
+    nomeSocial: 'erg',
+    cpf: '084',
+    genero: 'm',
+    dataNascimento: '18-12-1997',
+    cep: '456',
+    numero: '28',
+    complemento: '2',
+    // Adicionar outros campos conforme necessário
+  });
 
-  const handleProximo = () => {
-    if (etapaAtual < 2 && camposPreenchidos) {
-      setEtapaAtual(etapaAtual + 1);
+  const handleProximo = async () => {
+    if (etapaAtual == 100) {
+      //alterar o !== 3 e remover o !
+      /*if (etapaAtual !== 3 && !camposPreenchidos) {
+      try {
+        const response = await fetch('http://localhost:3500/api/users', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(dadosFormulario),
+        });
+
+        if (response.ok) {
+          console.log('User registered successfully!');
+        } else {
+          alert('Failed to register user. Please try again.');
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        alert('An error occurred. Please try again.');
+      }*/
     } else {
-      alert(
-        'Você deve preencher todos os campos obrigatórios\n\nCampos obrigatórios possume um arterísco ao lado ( * )'
-      );
+      if (etapaAtual < 2 && camposPreenchidos) {
+        setEtapaAtual(etapaAtual + 1);
+        console.log(dadosFormulario);
+      } else {
+        alert(
+          'Você deve preencher todos os campos obrigatórios\n\nCampos obrigatórios possume um arterísco ao lado ( * )'
+        );
+      }
     }
   };
 
@@ -46,7 +81,15 @@ export function Cadastro() {
 
         <TabPanels>
           <TabPanel>
-            <CadastroEtapaUm onFormComplete={setCamposPreenchidos} />
+            <CadastroEtapaUm
+              onFormComplete={setCamposPreenchidos}
+              onInputChange={(campo, valor) =>
+                setDadosFormulario(prevDados => ({
+                  ...prevDados,
+                  [campo]: valor,
+                }))
+              }
+            />
           </TabPanel>
 
           <TabPanel>
