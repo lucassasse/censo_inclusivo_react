@@ -8,9 +8,6 @@ import {
   Link,
   Center,
   Text,
-  Spacer,
-  ButtonGroup,
-  Button,
 } from '@chakra-ui/react';
 import { Link as ReactRouterLink, redirect } from 'react-router-dom';
 import { useAuthentication } from '../../contexts';
@@ -21,7 +18,7 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 export function Home() {
   const authentication = useAuthentication();
 
-  const handleLogin = async () => {
+  const handleLogout = async () => {
     try {
       await authentication.logout();
       redirect('/');
@@ -65,7 +62,7 @@ export function Home() {
             >
               Lucas Eduardo Sasse
             </Text>
-            <Link h="50px" as={ReactRouterLink} onClick={handleLogin}>
+            <Link h="50px" as={ReactRouterLink} onClick={handleLogout}>
               Sair
             </Link>
           </Box>
@@ -81,7 +78,7 @@ export function Home() {
                 fontSize="30px"
                 margin="10px 0 10px 0"
               >
-                <h1>Bem Vindo</h1>
+                <h1>Bem-Vindo</h1>
               </Flex>
               <Carousel
                 showArrows={true}
