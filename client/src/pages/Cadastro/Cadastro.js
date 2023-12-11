@@ -19,21 +19,23 @@ export function Cadastro() {
   const [camposPreenchidos, setCamposPreenchidos] = useState(false);
 
   const [dadosFormulario, setDadosFormulario] = useState({
-    name: 'Lusca',
-    social_name: 'erg',
-    cpf: '084',
+    name: 'Lucas',
+    social_name: '',
+    cpf: '123.456.789-02',
     gender: 'm',
     birthdate: '1997-12-18',
-    cep: '456',
-    number: '28',
-    complement: '2',
+    cep: '89253-555',
+    number: '155',
+    complement: '',
+    email: 'lucas@gmail.com',
+    password: '1234567890',
     // Adicionar outros campos conforme necessário
   });
 
   const handleProximo = async () => {
     //if (etapaAtual == 100) {
     //alterar o !== 3 e remover o !
-    if (etapaAtual !== 3 && !camposPreenchidos) {
+    if (etapaAtual == 1 && camposPreenchidos) {
       try {
         const response = await fetch('http://localhost:3500/api/users', {
           method: 'POST',
@@ -44,6 +46,7 @@ export function Cadastro() {
         });
 
         if (response.ok) {
+          alert('Usuário Cadastrado com Sucesso!');
           console.log('User registered successfully!');
         } else {
           alert('Failed to register user. Please try again.');

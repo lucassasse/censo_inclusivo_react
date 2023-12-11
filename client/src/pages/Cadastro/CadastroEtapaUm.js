@@ -22,6 +22,8 @@ function CadastroEtapaUm({ onFormComplete, onInputChange }) {
   const [dataNascimento, setDataNascimento] = useState('');
   const [numero, setNumero] = useState('');
   const [complemento, setComplemento] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const handleCampoPreenchido = () => {
     if (
@@ -30,7 +32,9 @@ function CadastroEtapaUm({ onFormComplete, onInputChange }) {
       genero &&
       dataNascimento &&
       cep &&
-      numero
+      numero &&
+      email &&
+      password
     ) {
       onFormComplete(true);
     } else {
@@ -71,6 +75,18 @@ function CadastroEtapaUm({ onFormComplete, onInputChange }) {
   function handleComplemento(value) {
     setComplemento(value);
     onInputChange('complemento', value);
+    handleCampoPreenchido();
+  }
+
+  function handleEmail(value) {
+    setEmail(value);
+    onInputChange('email', value);
+    handleCampoPreenchido();
+  }
+
+  function handleSenha(value) {
+    setPassword(value);
+    onInputChange('password', value);
     handleCampoPreenchido();
   }
 
@@ -229,6 +245,10 @@ function CadastroEtapaUm({ onFormComplete, onInputChange }) {
         />
         <FormLabel mt="3vh">Complemento</FormLabel>
         <Input type="text" onChange={e => handleComplemento(e.target.value)} />
+        <FormLabel mt="3vh">E-mail</FormLabel>
+        <Input type="text" onChange={e => handleEmail(e.target.value)} />
+        <FormLabel mt="3vh">Senha</FormLabel>
+        <Input type="password" onChange={e => handleSenha(e.target.value)} />
       </FormControl>
     </Center>
   );

@@ -2,7 +2,7 @@ const mysql = require('mysql2/promise');
 const databaseConfig = require('../config/database');
 
 async function CreateUser(req, res) {
-	const { name, social_name, cpf, gender, birthdate, cep, number, complement } = req.body;
+	const { name, social_name, cpf, gender, birthdate, cep, number, complement, email, password } = req.body;
 	try {
 	  const connection = await mysql.createConnection(databaseConfig);
 	  const insertUser = `INSERT INTO user
@@ -14,10 +14,12 @@ async function CreateUser(req, res) {
 								  birthdate,
 								  cep,
 								  number,
-								  complement
+								  complement,
+								  email,
+								  password
 							  )
-						  VALUES (?, ?, ?, ?, ?, ?, ?, ?);`;
-	  await connection.query(insertUser, [name, social_name, cpf, gender, birthdate, cep, number, complement]);
+						  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);`;
+	  await connection.query(insertUser, [name, social_name, cpf, gender, birthdate, cep, number, complement, email, password]);
 	  await connection.end();
 	  res.status(201).send({ message: 'success' });
 	} catch (error) {
