@@ -33,8 +33,7 @@ export function Cadastro() {
   });
 
   const handleProximo = async () => {
-    //if (etapaAtual == 100) {
-    //alterar o !== 3 e remover o !
+    //alterar para == 3
     if (etapaAtual == 1 && camposPreenchidos) {
       try {
         const response = await fetch('http://localhost:3500/api/users', {

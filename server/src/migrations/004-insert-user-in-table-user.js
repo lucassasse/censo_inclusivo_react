@@ -9,7 +9,7 @@ async function CreateTableUser() {
 			INSERT INTO user
 				(
 					name,
-					social_name
+					social_name,
 					cpf,
 					gender,
 					birthdate,
@@ -24,11 +24,11 @@ async function CreateTableUser() {
 					'Lucas Eduardo Sasse',
 					'',
 					'123.456.789-01',
-					'm',
+					'masculino',
 					'2000-01-01',
 					'89253-555',
 					'155',
-					'',
+					'predio',
 					'meu.email@email.com',
 					'123456789'
 				);

@@ -245,9 +245,9 @@ function CadastroEtapaUm({ onFormComplete, onInputChange }) {
         />
         <FormLabel mt="3vh">Complemento</FormLabel>
         <Input type="text" onChange={e => handleComplemento(e.target.value)} />
-        <FormLabel mt="3vh">E-mail</FormLabel>
+        <FormLabel mt="3vh">E-mail *</FormLabel>
         <Input type="text" onChange={e => handleEmail(e.target.value)} />
-        <FormLabel mt="3vh">Senha</FormLabel>
+        <FormLabel mt="3vh">Senha *</FormLabel>
         <Input type="password" onChange={e => handleSenha(e.target.value)} />
       </FormControl>
     </Center>

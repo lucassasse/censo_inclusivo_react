@@ -13,9 +13,9 @@ async function CreateTableUser() {
 				cpf VARCHAR(14) NOT NULL UNIQUE,
 				gender VARCHAR(15) NOT NULL,
 				birthdate DATE NOT NULL,
-				cep VARCHAR(9),
+				cep VARCHAR(9) NOT NULL,
 				number INT NOT NULL,
-				complement VARCHAR(255) NOT NULL,
+				complement VARCHAR(255),
 				email VARCHAR(255) NOT NULL,
 				password VARCHAR(255) NOT NULL
 			);
