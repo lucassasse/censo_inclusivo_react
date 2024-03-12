@@ -45,9 +45,7 @@ O projeto está sendo desenvolvido utilizando as seguintes tecnologias:
 
 ## Autores
 
-- Leando Kuhlmann.
 - Lucas Eduardo Sasse.
-- Rafael Cristiano Conti.
 
 ## Licença
 
